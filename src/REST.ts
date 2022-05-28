@@ -1,0 +1,181 @@
+import { CDN } from './CDN.ts';
+import { DEFAULT_REST_OPTIONS, Queue } from './util/mod.ts';
+import { HTTPError } from './errors/mod.ts';
+import { deepmerge as merge } from 'https://deno.land/x/deepmergets@v4.0.3/dist/deno/index.ts';
+import {
+  DeleteRoutes,
+  GetRoutes,
+  PatchRoutes,
+  PostRoutes,
+  PutRoutes,
+} from './types/routes.d.ts';
+
+export interface RESTOptions {
+  app: string;
+  api: string;
+  cdn: string;
+  timeout: number;
+  retries: number;
+}
+
+export interface APIRequest {
+  path: string;
+  method: 'GET' | 'POST' | 'DELETE' | 'PATCH' | 'PUT';
+  body?: unknown;
+  retries: number;
+}
+
+// deno-lint-ignore ban-types
+type DeepPartial<T> = T extends object ? {
+  [P in keyof T]?: DeepPartial<T[P]>;
+}
+  : T;
+
+export class REST {
+  readonly cdn: CDN;
+  protected readonly options: RESTOptions;
+  #bot = true;
+  #token: string | null = null;
+  #queue = new Queue();
+
+  debug(_msg: string) {}
+
+  constructor(options: DeepPartial<RESTOptions> = {}) {
+    this.options = merge(DEFAULT_REST_OPTIONS, options) as RESTOptions;
+    this.cdn = new CDN(this.options);
+  }
+
+  private get headers() {
+    if (!this.#token) {
+      throw new Error(
+        'Expected token to be set for this request, but none was present',
+      );
+    }
+
+    return {
+      [`x-${this.#bot ? 'bot' : 'session'}-token`]: this.#token,
+    };
+  }
+
+  setToken(token: string | null, bot = true): this {
+    this.#token = token;
+    this.#bot = bot;
+    return this;
+  }
+
+  // deno-lint-ignore no-explicit-any
+  private async request(request: APIRequest): Promise<any> {
+    await this.#queue.wait();
+
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(
+        () => controller.abort(),
+        this.options.timeout,
+      );
+      const res = await fetch(request.path, {
+        method: request.method,
+        headers: this.headers,
+        body: request.body ? JSON.stringify(request.body) : void 0,
+        signal: controller.signal,
+      }).finally(() => clearTimeout(timeout));
+
+      if (res.ok) {
+        return res.json();
+      }
+
+      // TODO: Handle Rate limits
+      if (res.status === 429) {
+        this.debug(`Hit a 429 while executing a request.
+          Method: ${request.method}
+          Path: ${request.path}
+          Limit: ${this.options.retries}
+          Timeout: ${this.options.timeout}ms`);
+      }
+
+      if (res.status >= 500 && res.status < 600) {
+        if (request.retries === this.options.retries) throw res;
+
+        request.retries++;
+
+        return this.request(request);
+      }
+
+      throw res;
+    } catch (err) {
+      if (request.retries === this.options.retries) {
+        if (err instanceof Response) throw new HTTPError(err, request);
+        throw err;
+      }
+
+      request.retries++;
+
+      return this.request(request);
+    } finally {
+      this.#queue.next();
+    }
+  }
+
+  private generateRequest(
+    path: string,
+    opts: Partial<APIRequest> = {},
+  ): APIRequest {
+    const options: APIRequest = {
+      path: this.options.api + path,
+      method: opts.method ?? 'GET',
+      retries: 0,
+      body: opts.body,
+    };
+
+    this.debug(
+      `Generating request options for route: ${path} method: ${options.method}`,
+    );
+
+    return options;
+  }
+
+  get<
+    Path extends GetRoutes['path'],
+    Route extends GetRoutes & { path: Path; method: 'GET' },
+  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    return this.request(
+      this.generateRequest(path, { ...options, method: 'GET' }),
+    );
+  }
+
+  post<
+    Path extends PostRoutes['path'],
+    Route extends PostRoutes & { path: Path; method: 'POST' },
+  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    return this.request(
+      this.generateRequest(path, { ...options, method: 'POST' }),
+    );
+  }
+
+  delete<
+    Path extends DeleteRoutes['path'],
+    Route extends DeleteRoutes & { path: Path; method: 'DELETE' },
+  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    return this.request(
+      this.generateRequest(path, { ...options, method: 'DELETE' }),
+    );
+  }
+
+  put<
+    Path extends PutRoutes['path'],
+    Route extends PutRoutes & { path: Path; method: 'PUT' },
+  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    return this.request(
+      this.generateRequest(path, { ...options, method: 'PUT' }),
+    );
+  }
+
+  patch<
+    Path extends PatchRoutes['path'],
+    Route extends PatchRoutes & { path: Path; method: 'PATCH' },
+  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    return this.request(
+      this.generateRequest(path, { ...options, method: 'PATCH' }),
+    );
+  }
+}
