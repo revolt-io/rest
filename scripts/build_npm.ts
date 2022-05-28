@@ -8,6 +8,8 @@ if (!Deno.args[0]) {
 await emptyDir('./npm');
 
 await build({
+    packageManager: 'pnpm',
+    scriptModule: false,
     entryPoints: ['./mod.ts'],
     outDir: './npm',
     shims: {
@@ -48,7 +50,6 @@ await build({
         },
         files: [
             "esm/*",
-            "script/*",
             "types/*"
         ],
     },
