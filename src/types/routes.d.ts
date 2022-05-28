@@ -545,7 +545,7 @@ export type Routes = {
   method: 'GET';
   response: { users: string[]; servers: string[] };
 } | {
-  path: `/users/{username}/friend`;
+  path: `/users/${string}/friend`;
   method: 'PUT';
   response: {
     _id: string;
@@ -1094,7 +1094,7 @@ export type Routes = {
     }[];
   };
 } | {
-  path: `/channels/${string}/ack/{message}`;
+  path: `/channels/${string}/ack/${string}`;
   method: 'PUT';
   response: undefined;
 } | {
@@ -2125,7 +2125,7 @@ export type Routes = {
     }[];
   };
 } | {
-  path: `/channels/{_target}/messages/stale`;
+  path: `/channels/${string}/messages/stale`;
   method: 'POST';
   response: undefined;
 } | {

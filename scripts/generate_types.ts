@@ -65,7 +65,7 @@ for (const [path, methods] of Object.entries(OpenAPI.paths!)) {
     const schema = data.responses['200']?.content?.['application/json']?.schema;
     const typedResponse = getType(schema);
     const typedPath = path.replace(
-      /\{(target|id|code|role_id|member|msg|server)\}/g,
+      /\{(target|id|code|role_id|member|msg|server|message|username|_target)\}/g,
       '${string}',
     );
 
