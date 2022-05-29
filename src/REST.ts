@@ -1,5 +1,5 @@
 import { CDN } from './CDN.ts';
-import { DEFAULT_REST_OPTIONS, Queue } from './util/mod.ts';
+import { DEFAULT_REST_OPTIONS, Queue, stringifyQuery } from './util/mod.ts';
 import { HTTPError } from './errors/mod.ts';
 import { deepmerge as merge } from 'https://deno.land/x/deepmergets@v4.0.3/dist/deno/index.ts';
 import {
@@ -22,6 +22,7 @@ export interface APIRequest {
   path: string;
   method: 'GET' | 'POST' | 'DELETE' | 'PATCH' | 'PUT';
   body?: unknown;
+  query?: Record<string, string>;
   retries: number;
 }
 
@@ -128,11 +129,13 @@ export class REST {
     path: string,
     opts: Partial<APIRequest> = {},
   ): APIRequest {
+    const query = opts.query ? `?${stringifyQuery(opts.query)}` : '';
     const options: APIRequest = {
-      path: this.options.api + path,
+      path: this.options.api + path + query,
       method: opts.method ?? 'GET',
       retries: 0,
       body: opts.body,
+      query: opts.query,
     };
 
     this.debug(
