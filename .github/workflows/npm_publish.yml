@@ -11,9 +11,7 @@ jobs:
         with:
            deno-version: v1.x
       - uses: pnpm/action-setup@v2
-        with:
-          version: 7.1.0
-      - uses: action-setup@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
