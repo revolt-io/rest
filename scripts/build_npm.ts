@@ -35,7 +35,7 @@ await build({
   },
   package: {
     name: '@revoltio/rest',
-    version: Deno.args[0],
+    version: Deno.args[0].replace(/[A-Z]+/gi, ''),
     description: 'REST module for revolt.io',
     license: 'Apache-2',
     repository: {
