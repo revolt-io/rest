@@ -22,7 +22,7 @@ export interface APIRequest {
   path: string;
   method: 'GET' | 'POST' | 'DELETE' | 'PATCH' | 'PUT';
   body?: unknown;
-  query?: Record<string, string>;
+  query?: Record<string, unknown>;
   retries: number;
 }
 
