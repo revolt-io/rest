@@ -25,6 +25,9 @@ export interface APIRequest {
   retries: number;
 }
 
+type Count<Str extends string, SubStr extends string, Matches extends null[] = []> =
+  Str extends `${infer _}${SubStr}${infer After}` ? Count<After, SubStr, [...Matches, null]> : Matches['length'];
+
 // deno-lint-ignore ban-types
 type DeepPartial<T> = T extends object ? {
   [P in keyof T]?: DeepPartial<T[P]>;
@@ -38,7 +41,7 @@ export class REST {
   #token: string | null = null;
   #queue = new Queue();
 
-  debug(_msg: string) {}
+  debug(_msg: string) { }
 
   constructor(options: DeepPartial<RESTOptions> = {}) {
     this.options = merge(DEFAULT_REST_OPTIONS, options) as RESTOptions;
@@ -136,8 +139,8 @@ export class REST {
 
   get<
     Path extends GetRoutes['path'],
-    Route extends GetRoutes & { path: Path; method: 'GET' },
-  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    Route extends GetRoutes & { path: Path; parts: Count<Path, '/'>; method: 'GET' },
+    >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
     return this.request(
       this.generateRequest(path, { ...options, method: 'GET' }),
     );
@@ -145,8 +148,8 @@ export class REST {
 
   post<
     Path extends PostRoutes['path'],
-    Route extends PostRoutes & { path: Path; method: 'POST' },
-  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    Route extends PostRoutes & { path: Path; parts: Count<Path, '/'>; method: 'POST' },
+    >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
     return this.request(
       this.generateRequest(path, { ...options, method: 'POST' }),
     );
@@ -154,8 +157,8 @@ export class REST {
 
   delete<
     Path extends DeleteRoutes['path'],
-    Route extends DeleteRoutes & { path: Path; method: 'DELETE' },
-  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    Route extends DeleteRoutes & { path: Path; parts: Count<Path, '/'>; method: 'DELETE' },
+    >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
     return this.request(
       this.generateRequest(path, { ...options, method: 'DELETE' }),
     );
@@ -163,8 +166,8 @@ export class REST {
 
   put<
     Path extends PutRoutes['path'],
-    Route extends PutRoutes & { path: Path; method: 'PUT' },
-  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    Route extends PutRoutes & { path: Path; parts: Count<Path, '/'>; method: 'PUT' },
+    >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
     return this.request(
       this.generateRequest(path, { ...options, method: 'PUT' }),
     );
@@ -172,8 +175,8 @@ export class REST {
 
   patch<
     Path extends PatchRoutes['path'],
-    Route extends PatchRoutes & { path: Path; method: 'PATCH' },
-  >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
+    Route extends PatchRoutes & { path: Path; parts: Count<Path, '/'>; method: 'PATCH' },
+    >(path: Path, options: Partial<APIRequest> = {}): Promise<Route['response']> {
     return this.request(
       this.generateRequest(path, { ...options, method: 'PATCH' }),
     );
