@@ -421,7 +421,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -449,7 +449,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   }[];
 } | {
@@ -518,7 +518,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -546,7 +546,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -1185,7 +1185,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -1213,7 +1213,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -1287,7 +1287,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -1315,7 +1315,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -2466,7 +2466,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -2494,7 +2494,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -2578,7 +2578,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -2606,7 +2606,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -2675,7 +2675,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -2703,7 +2703,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -2725,11 +2725,13 @@ export type Routes = {
         user_banned?: string | null;
       };
       roles?: {
-        name: string;
-        permissions: { a: number; d: number };
-        colour?: string | null;
-        hoist?: boolean;
-        rank?: number;
+        [key: string]: {
+          name: string;
+          permissions: { a: number; d: number };
+          colour?: string | null;
+          hoist?: boolean;
+          rank?: number;
+        };
       };
       default_permissions: number;
       icon?: {
@@ -2837,7 +2839,7 @@ export type Routes = {
       };
       last_message_id?: string | null;
       default_permissions?: { a: number; d: number };
-      role_permissions?: { a: number; d: number };
+      role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
     } | {
       channel_type: 'VoiceChannel';
@@ -2865,7 +2867,7 @@ export type Routes = {
         object_id?: string | null;
       };
       default_permissions?: { a: number; d: number };
-      role_permissions?: { a: number; d: number };
+      role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
     }[];
   };
@@ -2887,11 +2889,13 @@ export type Routes = {
       user_banned?: string | null;
     };
     roles?: {
-      name: string;
-      permissions: { a: number; d: number };
-      colour?: string | null;
-      hoist?: boolean;
-      rank?: number;
+      [key: string]: {
+        name: string;
+        permissions: { a: number; d: number };
+        colour?: string | null;
+        hoist?: boolean;
+        rank?: number;
+      };
     };
     default_permissions: number;
     icon?: {
@@ -2960,11 +2964,13 @@ export type Routes = {
       user_banned?: string | null;
     };
     roles?: {
-      name: string;
-      permissions: { a: number; d: number };
-      colour?: string | null;
-      hoist?: boolean;
-      rank?: number;
+      [key: string]: {
+        name: string;
+        permissions: { a: number; d: number };
+        colour?: string | null;
+        hoist?: boolean;
+        rank?: number;
+      };
     };
     default_permissions: number;
     icon?: {
@@ -3081,7 +3087,7 @@ export type Routes = {
     };
     last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
     channel_type: 'VoiceChannel';
@@ -3109,7 +3115,7 @@ export type Routes = {
       object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
-    role_permissions?: { a: number; d: number };
+    role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   };
 } | {
@@ -3375,11 +3381,13 @@ export type Routes = {
       user_banned?: string | null;
     };
     roles?: {
-      name: string;
-      permissions: { a: number; d: number };
-      colour?: string | null;
-      hoist?: boolean;
-      rank?: number;
+      [key: string]: {
+        name: string;
+        permissions: { a: number; d: number };
+        colour?: string | null;
+        hoist?: boolean;
+        rank?: number;
+      };
     };
     default_permissions: number;
     icon?: {
@@ -3443,11 +3451,13 @@ export type Routes = {
       user_banned?: string | null;
     };
     roles?: {
-      name: string;
-      permissions: { a: number; d: number };
-      colour?: string | null;
-      hoist?: boolean;
-      rank?: number;
+      [key: string]: {
+        name: string;
+        permissions: { a: number; d: number };
+        colour?: string | null;
+        hoist?: boolean;
+        rank?: number;
+      };
     };
     default_permissions: number;
     icon?: {
@@ -3659,7 +3669,7 @@ export type Routes = {
       };
       last_message_id?: string | null;
       default_permissions?: { a: number; d: number };
-      role_permissions?: { a: number; d: number };
+      role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
     } | {
       channel_type: 'VoiceChannel';
@@ -3687,7 +3697,7 @@ export type Routes = {
         object_id?: string | null;
       };
       default_permissions?: { a: number; d: number };
-      role_permissions?: { a: number; d: number };
+      role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
     }[];
     server: {
@@ -3704,11 +3714,13 @@ export type Routes = {
         user_banned?: string | null;
       };
       roles?: {
-        name: string;
-        permissions: { a: number; d: number };
-        colour?: string | null;
-        hoist?: boolean;
-        rank?: number;
+        [key: string]: {
+          name: string;
+          permissions: { a: number; d: number };
+          colour?: string | null;
+          hoist?: boolean;
+          rank?: number;
+        };
       };
       default_permissions: number;
       icon?: {
@@ -3870,7 +3882,7 @@ export type Routes = {
   path: `/sync/settings/fetch`;
   parts: 3;
   method: 'POST';
-  response: {}[];
+  response: { [key: string]: [number, string] };
 } | {
   path: `/sync/settings/set`;
   parts: 3;

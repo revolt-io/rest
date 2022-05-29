@@ -23,6 +23,10 @@ function getType(schema: ReferenceObject | SchemaObject): string {
   const extractedTypes: Record<string, string> = {};
 
   if (schema.items) {
+    if (Array.isArray(schema.items)) {
+      return '[' + schema.items.map((t) => getType(t)).join(', ') + ']';
+    }
+
     return getType(schema.items) + '[]' + (schema.nullable ? ' | null' : '');
   }
   if (schema.allOf) {
@@ -37,7 +41,7 @@ function getType(schema: ReferenceObject | SchemaObject): string {
     schema.additionalProperties &&
     typeof schema.additionalProperties !== 'boolean'
   ) {
-    return getType(schema.additionalProperties);
+    return `{ [key: string]: ${getType(schema.additionalProperties)} }`;
   }
 
   if (schema.properties) {
