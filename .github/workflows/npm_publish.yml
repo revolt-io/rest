@@ -11,6 +11,9 @@ jobs:
         with:
            deno-version: v1.x
       - uses: pnpm/action-setup@v2
+        with:
+            version: 7.x.x
+            run_install: false
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
