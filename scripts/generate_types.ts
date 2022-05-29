@@ -84,10 +84,10 @@ Deno.writeTextFileSync(
   'src/types/routes.d.ts',
   `
 export type Routes = ${routes.join(' | ')}
-export type GetRoutes = Routes & { method: 'GET' }
-export type DeleteRoutes = Routes & { method: 'DELETE' }
-export type PostRoutes = Routes & { method: 'POST' }
-export type PatchRoutes = Routes & { method: 'PATCH' }
-export type PutRoutes = Routes & { method: 'PUT' }
+export type GetRoutes = Extract<Routes, { method: 'GET' }>
+export type DeleteRoutes = Extract<Routes, { method: 'DELETE' }>
+export type PostRoutes = Extract<Routes, { method: 'POST' }>
+export type PatchRoutes = Extract<Routes, { method: 'PATCH' }>
+export type PutRoutes = Extract<Routes, { method: 'PUT' }>
 `,
 );
