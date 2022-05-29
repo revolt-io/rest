@@ -8,7 +8,7 @@ import {
   PatchRoutes,
   PostRoutes,
   PutRoutes,
-} from './types/routes.d.ts';
+} from './types/routes.ts';
 
 export interface RESTOptions {
   app: string;
