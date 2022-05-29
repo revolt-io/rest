@@ -51,16 +51,12 @@ function getType(schema: ReferenceObject | SchemaObject): string {
   if (schema.type && Object.keys(extractedTypes).length === 0) {
     extractedTypes.type = schema.type;
     if (schema.nullable) extractedTypes.type += ' | null';
+    return extractedTypes.type;
   }
 
-  const keys = Object.keys(extractedTypes);
-  const isArray = schema.type === 'array';
-
-  if (keys.length === 1) return extractedTypes[keys[0]] + (isArray ? '[]' : '');
-
-  return '{ ' + keys.map((key) => {
-    return `${key}: ${extractedTypes[key]},`;
-  }).join(' ') + (isArray ? '[]' : '') + ' }';
+  return '{ ' + Object.entries(extractedTypes).map(([key, value]) => {
+    return `${key}: ${value},`;
+  }).join(' ') + ' }';
 }
 
 for (const [path, methods] of Object.entries(OpenAPI.paths!)) {
