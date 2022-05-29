@@ -28,11 +28,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -65,11 +65,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -82,7 +82,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -105,11 +105,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -142,11 +142,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -159,7 +159,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -182,11 +182,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -219,11 +219,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -236,7 +236,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -259,11 +259,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -296,11 +296,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -313,7 +313,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -340,11 +340,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -377,11 +377,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -405,11 +405,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -434,11 +434,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -474,11 +474,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -502,11 +502,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -531,11 +531,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -566,11 +566,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -603,11 +603,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -620,7 +620,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -643,11 +643,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -680,11 +680,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -697,7 +697,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -720,11 +720,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -757,11 +757,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -774,7 +774,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -797,11 +797,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -834,11 +834,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -851,7 +851,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -890,11 +890,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -936,11 +936,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -973,11 +973,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -990,7 +990,7 @@ export type Routes = {
       };
       flags?: number | null;
       privileged?: boolean;
-      bot?: string;
+      bot?: { owner: string };
       relationship?:
         | 'None'
         | 'User'
@@ -1048,11 +1048,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1085,11 +1085,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -1102,7 +1102,7 @@ export type Routes = {
       };
       flags?: number | null;
       privileged?: boolean;
-      bot?: string;
+      bot?: { owner: string };
       relationship?:
         | 'None'
         | 'User'
@@ -1141,11 +1141,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1169,11 +1169,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1198,11 +1198,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1243,11 +1243,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1271,11 +1271,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1300,11 +1300,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1330,11 +1330,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1367,11 +1367,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1384,7 +1384,7 @@ export type Routes = {
     };
     flags?: number | null;
     privileged?: boolean;
-    bot?: string;
+    bot?: { owner: string };
     relationship?:
       | 'None'
       | 'User'
@@ -1432,11 +1432,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1453,8 +1453,8 @@ export type Routes = {
         url?: string | null;
         original_url?: string | null;
         special?:
-          | 'None'
-          | 'GIF'
+          | { type: 'None' }
+          | { type: 'GIF' }
           | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
@@ -1463,7 +1463,7 @@ export type Routes = {
             id: string;
           }
           | { type: 'Spotify'; content_type: string; id: string }
-          | 'Soundcloud'
+          | { type: 'Soundcloud' }
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
         title?: string | null;
         description?: string | null;
@@ -1497,11 +1497,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -1513,7 +1513,7 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[]
+      | { type: 'None' }[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
@@ -1541,11 +1541,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1562,8 +1562,8 @@ export type Routes = {
           url?: string | null;
           original_url?: string | null;
           special?:
-            | 'None'
-            | 'GIF'
+            | { type: 'None' }
+            | { type: 'GIF' }
             | { type: 'YouTube'; id: string; timestamp?: string | null }
             | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
             | {
@@ -1572,7 +1572,7 @@ export type Routes = {
               id: string;
             }
             | { type: 'Spotify'; content_type: string; id: string }
-            | 'Soundcloud'
+            | { type: 'Soundcloud' }
             | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
           title?: string | null;
           description?: string | null;
@@ -1606,11 +1606,11 @@ export type Routes = {
             tag: string;
             filename: string;
             metadata:
-              | 'File'
-              | 'Text'
+              | { type: 'File' }
+              | { type: 'Text' }
               | { type: 'Image'; width: number; height: number }
               | { type: 'Video'; width: number; height: number }
-              | 'Audio';
+              | { type: 'Audio' };
             content_type: string;
             size: number;
             deleted?: boolean | null;
@@ -1622,7 +1622,7 @@ export type Routes = {
           };
           colour?: string | null;
         }
-        | 'None'[]
+        | { type: 'None' }[]
         | null;
       mentions?: string[] | null;
       replies?: string[] | null;
@@ -1636,11 +1636,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1673,11 +1673,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -1690,7 +1690,7 @@ export type Routes = {
       };
       flags?: number | null;
       privileged?: boolean;
-      bot?: string;
+      bot?: { owner: string };
       relationship?:
         | 'None'
         | 'User'
@@ -1709,11 +1709,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1752,11 +1752,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1773,8 +1773,8 @@ export type Routes = {
         url?: string | null;
         original_url?: string | null;
         special?:
-          | 'None'
-          | 'GIF'
+          | { type: 'None' }
+          | { type: 'GIF' }
           | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
@@ -1783,7 +1783,7 @@ export type Routes = {
             id: string;
           }
           | { type: 'Spotify'; content_type: string; id: string }
-          | 'Soundcloud'
+          | { type: 'Soundcloud' }
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
         title?: string | null;
         description?: string | null;
@@ -1817,11 +1817,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -1833,7 +1833,7 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[]
+      | { type: 'None' }[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
@@ -1865,11 +1865,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1886,8 +1886,8 @@ export type Routes = {
         url?: string | null;
         original_url?: string | null;
         special?:
-          | 'None'
-          | 'GIF'
+          | { type: 'None' }
+          | { type: 'GIF' }
           | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
@@ -1896,7 +1896,7 @@ export type Routes = {
             id: string;
           }
           | { type: 'Spotify'; content_type: string; id: string }
-          | 'Soundcloud'
+          | { type: 'Soundcloud' }
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
         title?: string | null;
         description?: string | null;
@@ -1930,11 +1930,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -1946,7 +1946,7 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[]
+      | { type: 'None' }[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
@@ -1974,11 +1974,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1995,8 +1995,8 @@ export type Routes = {
           url?: string | null;
           original_url?: string | null;
           special?:
-            | 'None'
-            | 'GIF'
+            | { type: 'None' }
+            | { type: 'GIF' }
             | { type: 'YouTube'; id: string; timestamp?: string | null }
             | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
             | {
@@ -2005,7 +2005,7 @@ export type Routes = {
               id: string;
             }
             | { type: 'Spotify'; content_type: string; id: string }
-            | 'Soundcloud'
+            | { type: 'Soundcloud' }
             | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
           title?: string | null;
           description?: string | null;
@@ -2039,11 +2039,11 @@ export type Routes = {
             tag: string;
             filename: string;
             metadata:
-              | 'File'
-              | 'Text'
+              | { type: 'File' }
+              | { type: 'Text' }
               | { type: 'Image'; width: number; height: number }
               | { type: 'Video'; width: number; height: number }
-              | 'Audio';
+              | { type: 'Audio' };
             content_type: string;
             size: number;
             deleted?: boolean | null;
@@ -2055,7 +2055,7 @@ export type Routes = {
           };
           colour?: string | null;
         }
-        | 'None'[]
+        | { type: 'None' }[]
         | null;
       mentions?: string[] | null;
       replies?: string[] | null;
@@ -2069,11 +2069,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2106,11 +2106,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -2123,7 +2123,7 @@ export type Routes = {
       };
       flags?: number | null;
       privileged?: boolean;
-      bot?: string;
+      bot?: { owner: string };
       relationship?:
         | 'None'
         | 'User'
@@ -2142,11 +2142,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2190,11 +2190,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2211,8 +2211,8 @@ export type Routes = {
         url?: string | null;
         original_url?: string | null;
         special?:
-          | 'None'
-          | 'GIF'
+          | { type: 'None' }
+          | { type: 'GIF' }
           | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
@@ -2221,7 +2221,7 @@ export type Routes = {
             id: string;
           }
           | { type: 'Spotify'; content_type: string; id: string }
-          | 'Soundcloud'
+          | { type: 'Soundcloud' }
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
         title?: string | null;
         description?: string | null;
@@ -2255,11 +2255,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -2271,7 +2271,7 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[]
+      | { type: 'None' }[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
@@ -2308,11 +2308,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2329,8 +2329,8 @@ export type Routes = {
         url?: string | null;
         original_url?: string | null;
         special?:
-          | 'None'
-          | 'GIF'
+          | { type: 'None' }
+          | { type: 'GIF' }
           | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
@@ -2339,7 +2339,7 @@ export type Routes = {
             id: string;
           }
           | { type: 'Spotify'; content_type: string; id: string }
-          | 'Soundcloud'
+          | { type: 'Soundcloud' }
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
         title?: string | null;
         description?: string | null;
@@ -2373,11 +2373,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -2389,7 +2389,7 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[]
+      | { type: 'None' }[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
@@ -2422,11 +2422,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2450,11 +2450,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2479,11 +2479,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2511,7 +2511,7 @@ export type Routes = {
   path: `/channels/${string}/join_call`;
   parts: 3;
   method: 'POST';
-  response: string;
+  response: { token: string };
 } | {
   path: `/channels/${string}/permissions/${string}`;
   parts: 4;
@@ -2534,11 +2534,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2562,11 +2562,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2591,11 +2591,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2631,11 +2631,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2659,11 +2659,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2688,11 +2688,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2737,11 +2737,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2756,11 +2756,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2793,11 +2793,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2821,11 +2821,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2850,11 +2850,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2899,11 +2899,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2918,11 +2918,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2972,11 +2972,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2991,11 +2991,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3037,11 +3037,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3065,11 +3065,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3094,11 +3094,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3125,11 +3125,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3149,11 +3149,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3186,11 +3186,11 @@ export type Routes = {
           tag: string;
           filename: string;
           metadata:
-            | 'File'
-            | 'Text'
+            | { type: 'File' }
+            | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | 'Audio';
+            | { type: 'Audio' };
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -3203,7 +3203,7 @@ export type Routes = {
       };
       flags?: number | null;
       privileged?: boolean;
-      bot?: string;
+      bot?: { owner: string };
       relationship?:
         | 'None'
         | 'User'
@@ -3227,11 +3227,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3260,11 +3260,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3299,11 +3299,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3387,11 +3387,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3406,11 +3406,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3455,11 +3455,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3474,11 +3474,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3507,11 +3507,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3526,11 +3526,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3549,11 +3549,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3576,11 +3576,11 @@ export type Routes = {
       tag: string;
       filename: string;
       metadata:
-        | 'File'
-        | 'Text'
+        | { type: 'File' }
+        | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | 'Audio';
+        | { type: 'Audio' };
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -3615,11 +3615,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3643,11 +3643,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3672,11 +3672,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3716,11 +3716,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3735,11 +3735,11 @@ export type Routes = {
         tag: string;
         filename: string;
         metadata:
-          | 'File'
-          | 'Text'
+          | { type: 'File' }
+          | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | 'Audio';
+          | { type: 'Audio' };
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -3813,7 +3813,7 @@ export type Routes = {
       name: string;
       subscription?: { endpoint: string; p256dh: string; auth: string };
     }
-    | 'EmailOTP'
+    | { result: 'EmailOTP' }
     | { result: 'MFA'; ticket: string; allowed_methods: string[] };
 } | {
   path: `/auth/session/logout`;
@@ -3850,7 +3850,7 @@ export type Routes = {
   path: `/onboard/hello`;
   parts: 2;
   method: 'GET';
-  response: boolean;
+  response: { onboarding: boolean };
 } | {
   path: `/onboard/complete`;
   parts: 2;
