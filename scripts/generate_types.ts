@@ -48,6 +48,7 @@ function getType(schema: ReferenceObject | SchemaObject): string {
   if (schema.type === 'integer') schema.type = 'number';
   if (schema.type && Object.keys(extractedTypes).length === 0) {
     extractedTypes.type = schema.type;
+    if (schema.nullable) extractedTypes.type += ' | null';
   }
 
   const keys = Object.keys(extractedTypes);

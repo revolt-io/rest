@@ -35,12 +35,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -53,13 +53,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -72,15 +72,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -91,7 +91,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/@me`;
@@ -112,12 +112,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -130,13 +130,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -149,15 +149,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -168,7 +168,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/${string}`;
@@ -189,12 +189,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -207,13 +207,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -226,15 +226,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -245,7 +245,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/@me/username`;
@@ -266,12 +266,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -284,13 +284,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -303,15 +303,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -322,7 +322,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/${string}/default_avatar`;
@@ -334,7 +334,7 @@ export type Routes = {
   parts: 3;
   method: 'GET';
   response: {
-    content?: string;
+    content?: string | null;
     background?: {
       _id: string;
       tag: string;
@@ -347,12 +347,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
   };
 } | {
@@ -364,13 +364,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -384,22 +384,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -412,14 +412,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -428,7 +428,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -441,12 +441,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -461,13 +461,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -481,22 +481,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -509,14 +509,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -525,7 +525,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -538,12 +538,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -573,12 +573,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -591,13 +591,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -610,15 +610,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -629,7 +629,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/${string}/friend`;
@@ -650,12 +650,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -668,13 +668,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -687,15 +687,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -706,7 +706,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/${string}/block`;
@@ -727,12 +727,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -745,13 +745,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -764,15 +764,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -783,7 +783,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/users/${string}/block`;
@@ -804,12 +804,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -822,13 +822,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -841,15 +841,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -860,7 +860,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   };
 } | {
   path: `/bots/create`;
@@ -873,10 +873,10 @@ export type Routes = {
     public: boolean;
     analytics?: boolean;
     discoverable?: boolean;
-    interactions_url?: string;
-    terms_of_service_url?: string;
-    privacy_policy_url?: string;
-    flags?: number;
+    interactions_url?: string | null;
+    terms_of_service_url?: string | null;
+    privacy_policy_url?: string | null;
+    flags?: number | null;
   };
 } | {
   path: `/bots/${string}/invite`;
@@ -897,14 +897,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    description?: string;
+    description?: string | null;
   };
 } | {
   path: `/bots/${string}/invite`;
@@ -923,10 +923,10 @@ export type Routes = {
       public: boolean;
       analytics?: boolean;
       discoverable?: boolean;
-      interactions_url?: string;
-      terms_of_service_url?: string;
-      privacy_policy_url?: string;
-      flags?: number;
+      interactions_url?: string | null;
+      terms_of_service_url?: string | null;
+      privacy_policy_url?: string | null;
+      flags?: number | null;
     };
     user: {
       _id: string;
@@ -943,12 +943,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       relations?: {
         _id: string;
@@ -961,13 +961,13 @@ export type Routes = {
           | 'Blocked'
           | 'BlockedOther';
       }[];
-      badges?: number;
+      badges?: number | null;
       status?: {
-        text?: string;
+        text?: string | null;
         presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
       };
       profile?: {
-        content?: string;
+        content?: string | null;
         background?: {
           _id: string;
           tag: string;
@@ -980,15 +980,15 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
       };
-      flags?: number;
+      flags?: number | null;
       privileged?: boolean;
       bot?: string;
       relationship?:
@@ -999,7 +999,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-      online?: boolean;
+      online?: boolean | null;
     };
   };
 } | {
@@ -1018,10 +1018,10 @@ export type Routes = {
     public: boolean;
     analytics?: boolean;
     discoverable?: boolean;
-    interactions_url?: string;
-    terms_of_service_url?: string;
-    privacy_policy_url?: string;
-    flags?: number;
+    interactions_url?: string | null;
+    terms_of_service_url?: string | null;
+    privacy_policy_url?: string | null;
+    flags?: number | null;
   };
 } | {
   path: `/bots/@me`;
@@ -1035,10 +1035,10 @@ export type Routes = {
       public: boolean;
       analytics?: boolean;
       discoverable?: boolean;
-      interactions_url?: string;
-      terms_of_service_url?: string;
-      privacy_policy_url?: string;
-      flags?: number;
+      interactions_url?: string | null;
+      terms_of_service_url?: string | null;
+      privacy_policy_url?: string | null;
+      flags?: number | null;
     }[];
     users: {
       _id: string;
@@ -1055,12 +1055,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       relations?: {
         _id: string;
@@ -1073,13 +1073,13 @@ export type Routes = {
           | 'Blocked'
           | 'BlockedOther';
       }[];
-      badges?: number;
+      badges?: number | null;
       status?: {
-        text?: string;
+        text?: string | null;
         presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
       };
       profile?: {
-        content?: string;
+        content?: string | null;
         background?: {
           _id: string;
           tag: string;
@@ -1092,15 +1092,15 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
       };
-      flags?: number;
+      flags?: number | null;
       privileged?: boolean;
       bot?: string;
       relationship?:
@@ -1111,7 +1111,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-      online?: boolean;
+      online?: boolean | null;
     }[];
   };
 } | {
@@ -1128,13 +1128,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -1148,22 +1148,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -1176,14 +1176,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -1192,7 +1192,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -1205,12 +1205,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -1230,13 +1230,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -1250,22 +1250,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -1278,14 +1278,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -1294,7 +1294,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -1307,12 +1307,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -1337,12 +1337,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     relations?: {
       _id: string;
@@ -1355,13 +1355,13 @@ export type Routes = {
         | 'Blocked'
         | 'BlockedOther';
     }[];
-    badges?: number;
+    badges?: number | null;
     status?: {
-      text?: string;
+      text?: string | null;
       presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
     };
     profile?: {
-      content?: string;
+      content?: string | null;
       background?: {
         _id: string;
         tag: string;
@@ -1374,15 +1374,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     };
-    flags?: number;
+    flags?: number | null;
     privileged?: boolean;
     bot?: string;
     relationship?:
@@ -1393,7 +1393,7 @@ export type Routes = {
       | 'Incoming'
       | 'Blocked'
       | 'BlockedOther';
-    online?: boolean;
+    online?: boolean | null;
   }[];
 } | {
   path: `/channels/${string}/invites`;
@@ -1412,10 +1412,10 @@ export type Routes = {
   method: 'GET';
   response: {
     _id: string;
-    nonce?: string;
+    nonce?: string | null;
     channel: string;
     author: string;
-    content?: string;
+    content?: string | null;
     system?:
       | { type: 'text'; content: string }
       | { type: 'user_added'; id: string; by: string }
@@ -1439,23 +1439,23 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     }[];
     edited?: string;
     embeds?:
       | {
         type: 'Website';
-        url?: string;
-        original_url?: string;
+        url?: string | null;
+        original_url?: string | null;
         special?:
           | 'None'
           | 'GIF'
-          | { type: 'YouTube'; id: string; timestamp?: string }
+          | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
             type: 'Twitch';
@@ -1465,8 +1465,8 @@ export type Routes = {
           | { type: 'Spotify'; content_type: string; id: string }
           | 'Soundcloud'
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string;
-        description?: string;
+        title?: string | null;
+        description?: string | null;
         image?: {
           url: string;
           width: number;
@@ -1474,9 +1474,9 @@ export type Routes = {
           size: 'Large' | 'Preview';
         };
         video?: { url: string; width: number; height: number };
-        site_name?: string;
-        icon_url?: string;
-        colour?: string;
+        site_name?: string | null;
+        icon_url?: string | null;
+        colour?: string | null;
       }
       | {
         type: 'Image';
@@ -1488,10 +1488,10 @@ export type Routes = {
       | { type: 'Video'; url: string; width: number; height: number }
       | {
         type: 'Text';
-        icon_url?: string;
-        url?: string;
-        title?: string;
-        description?: string;
+        icon_url?: string | null;
+        url?: string | null;
+        title?: string | null;
+        description?: string | null;
         media?: {
           _id: string;
           tag: string;
@@ -1504,26 +1504,26 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
-        colour?: string;
+        colour?: string | null;
       }
       | 'None'[];
     mentions?: string[];
     replies?: string[];
-    masquerade?: { name?: string; avatar?: string };
+    masquerade?: { name?: string | null; avatar?: string | null };
   }[] | {
     messages: {
       _id: string;
-      nonce?: string;
+      nonce?: string | null;
       channel: string;
       author: string;
-      content?: string;
+      content?: string | null;
       system?:
         | { type: 'text'; content: string }
         | { type: 'user_added'; id: string; by: string }
@@ -1547,23 +1547,23 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       }[];
       edited?: string;
       embeds?:
         | {
           type: 'Website';
-          url?: string;
-          original_url?: string;
+          url?: string | null;
+          original_url?: string | null;
           special?:
             | 'None'
             | 'GIF'
-            | { type: 'YouTube'; id: string; timestamp?: string }
+            | { type: 'YouTube'; id: string; timestamp?: string | null }
             | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
             | {
               type: 'Twitch';
@@ -1573,8 +1573,8 @@ export type Routes = {
             | { type: 'Spotify'; content_type: string; id: string }
             | 'Soundcloud'
             | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-          title?: string;
-          description?: string;
+          title?: string | null;
+          description?: string | null;
           image?: {
             url: string;
             width: number;
@@ -1582,9 +1582,9 @@ export type Routes = {
             size: 'Large' | 'Preview';
           };
           video?: { url: string; width: number; height: number };
-          site_name?: string;
-          icon_url?: string;
-          colour?: string;
+          site_name?: string | null;
+          icon_url?: string | null;
+          colour?: string | null;
         }
         | {
           type: 'Image';
@@ -1596,10 +1596,10 @@ export type Routes = {
         | { type: 'Video'; url: string; width: number; height: number }
         | {
           type: 'Text';
-          icon_url?: string;
-          url?: string;
-          title?: string;
-          description?: string;
+          icon_url?: string | null;
+          url?: string | null;
+          title?: string | null;
+          description?: string | null;
           media?: {
             _id: string;
             tag: string;
@@ -1612,19 +1612,19 @@ export type Routes = {
               | 'Audio';
             content_type: string;
             size: number;
-            deleted?: boolean;
-            reported?: boolean;
-            message_id?: string;
-            user_id?: string;
-            server_id?: string;
-            object_id?: string;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
           };
-          colour?: string;
+          colour?: string | null;
         }
         | 'None'[];
       mentions?: string[];
       replies?: string[];
-      masquerade?: { name?: string; avatar?: string };
+      masquerade?: { name?: string | null; avatar?: string | null };
     }[];
     users: {
       _id: string;
@@ -1641,12 +1641,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       relations?: {
         _id: string;
@@ -1659,13 +1659,13 @@ export type Routes = {
           | 'Blocked'
           | 'BlockedOther';
       }[];
-      badges?: number;
+      badges?: number | null;
       status?: {
-        text?: string;
+        text?: string | null;
         presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
       };
       profile?: {
-        content?: string;
+        content?: string | null;
         background?: {
           _id: string;
           tag: string;
@@ -1678,15 +1678,15 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
       };
-      flags?: number;
+      flags?: number | null;
       privileged?: boolean;
       bot?: string;
       relationship?:
@@ -1697,11 +1697,11 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-      online?: boolean;
+      online?: boolean | null;
     }[];
     members?: {
       _id: { server: string; user: string };
-      nickname?: string;
+      nickname?: string | null;
       avatar?: {
         _id: string;
         tag: string;
@@ -1714,12 +1714,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       roles?: string[];
     }[];
@@ -1730,10 +1730,10 @@ export type Routes = {
   method: 'POST';
   response: {
     _id: string;
-    nonce?: string;
+    nonce?: string | null;
     channel: string;
     author: string;
-    content?: string;
+    content?: string | null;
     system?:
       | { type: 'text'; content: string }
       | { type: 'user_added'; id: string; by: string }
@@ -1757,23 +1757,23 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     }[];
     edited?: string;
     embeds?:
       | {
         type: 'Website';
-        url?: string;
-        original_url?: string;
+        url?: string | null;
+        original_url?: string | null;
         special?:
           | 'None'
           | 'GIF'
-          | { type: 'YouTube'; id: string; timestamp?: string }
+          | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
             type: 'Twitch';
@@ -1783,8 +1783,8 @@ export type Routes = {
           | { type: 'Spotify'; content_type: string; id: string }
           | 'Soundcloud'
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string;
-        description?: string;
+        title?: string | null;
+        description?: string | null;
         image?: {
           url: string;
           width: number;
@@ -1792,9 +1792,9 @@ export type Routes = {
           size: 'Large' | 'Preview';
         };
         video?: { url: string; width: number; height: number };
-        site_name?: string;
-        icon_url?: string;
-        colour?: string;
+        site_name?: string | null;
+        icon_url?: string | null;
+        colour?: string | null;
       }
       | {
         type: 'Image';
@@ -1806,10 +1806,10 @@ export type Routes = {
       | { type: 'Video'; url: string; width: number; height: number }
       | {
         type: 'Text';
-        icon_url?: string;
-        url?: string;
-        title?: string;
-        description?: string;
+        icon_url?: string | null;
+        url?: string | null;
+        title?: string | null;
+        description?: string | null;
         media?: {
           _id: string;
           tag: string;
@@ -1822,19 +1822,19 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
-        colour?: string;
+        colour?: string | null;
       }
       | 'None'[];
     mentions?: string[];
     replies?: string[];
-    masquerade?: { name?: string; avatar?: string };
+    masquerade?: { name?: string | null; avatar?: string | null };
   };
 } | {
   path: `/channels/${string}/search`;
@@ -1842,10 +1842,10 @@ export type Routes = {
   method: 'POST';
   response: {
     _id: string;
-    nonce?: string;
+    nonce?: string | null;
     channel: string;
     author: string;
-    content?: string;
+    content?: string | null;
     system?:
       | { type: 'text'; content: string }
       | { type: 'user_added'; id: string; by: string }
@@ -1869,23 +1869,23 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     }[];
     edited?: string;
     embeds?:
       | {
         type: 'Website';
-        url?: string;
-        original_url?: string;
+        url?: string | null;
+        original_url?: string | null;
         special?:
           | 'None'
           | 'GIF'
-          | { type: 'YouTube'; id: string; timestamp?: string }
+          | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
             type: 'Twitch';
@@ -1895,8 +1895,8 @@ export type Routes = {
           | { type: 'Spotify'; content_type: string; id: string }
           | 'Soundcloud'
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string;
-        description?: string;
+        title?: string | null;
+        description?: string | null;
         image?: {
           url: string;
           width: number;
@@ -1904,9 +1904,9 @@ export type Routes = {
           size: 'Large' | 'Preview';
         };
         video?: { url: string; width: number; height: number };
-        site_name?: string;
-        icon_url?: string;
-        colour?: string;
+        site_name?: string | null;
+        icon_url?: string | null;
+        colour?: string | null;
       }
       | {
         type: 'Image';
@@ -1918,10 +1918,10 @@ export type Routes = {
       | { type: 'Video'; url: string; width: number; height: number }
       | {
         type: 'Text';
-        icon_url?: string;
-        url?: string;
-        title?: string;
-        description?: string;
+        icon_url?: string | null;
+        url?: string | null;
+        title?: string | null;
+        description?: string | null;
         media?: {
           _id: string;
           tag: string;
@@ -1934,26 +1934,26 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
-        colour?: string;
+        colour?: string | null;
       }
       | 'None'[];
     mentions?: string[];
     replies?: string[];
-    masquerade?: { name?: string; avatar?: string };
+    masquerade?: { name?: string | null; avatar?: string | null };
   }[] | {
     messages: {
       _id: string;
-      nonce?: string;
+      nonce?: string | null;
       channel: string;
       author: string;
-      content?: string;
+      content?: string | null;
       system?:
         | { type: 'text'; content: string }
         | { type: 'user_added'; id: string; by: string }
@@ -1977,23 +1977,23 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       }[];
       edited?: string;
       embeds?:
         | {
           type: 'Website';
-          url?: string;
-          original_url?: string;
+          url?: string | null;
+          original_url?: string | null;
           special?:
             | 'None'
             | 'GIF'
-            | { type: 'YouTube'; id: string; timestamp?: string }
+            | { type: 'YouTube'; id: string; timestamp?: string | null }
             | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
             | {
               type: 'Twitch';
@@ -2003,8 +2003,8 @@ export type Routes = {
             | { type: 'Spotify'; content_type: string; id: string }
             | 'Soundcloud'
             | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-          title?: string;
-          description?: string;
+          title?: string | null;
+          description?: string | null;
           image?: {
             url: string;
             width: number;
@@ -2012,9 +2012,9 @@ export type Routes = {
             size: 'Large' | 'Preview';
           };
           video?: { url: string; width: number; height: number };
-          site_name?: string;
-          icon_url?: string;
-          colour?: string;
+          site_name?: string | null;
+          icon_url?: string | null;
+          colour?: string | null;
         }
         | {
           type: 'Image';
@@ -2026,10 +2026,10 @@ export type Routes = {
         | { type: 'Video'; url: string; width: number; height: number }
         | {
           type: 'Text';
-          icon_url?: string;
-          url?: string;
-          title?: string;
-          description?: string;
+          icon_url?: string | null;
+          url?: string | null;
+          title?: string | null;
+          description?: string | null;
           media?: {
             _id: string;
             tag: string;
@@ -2042,19 +2042,19 @@ export type Routes = {
               | 'Audio';
             content_type: string;
             size: number;
-            deleted?: boolean;
-            reported?: boolean;
-            message_id?: string;
-            user_id?: string;
-            server_id?: string;
-            object_id?: string;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
           };
-          colour?: string;
+          colour?: string | null;
         }
         | 'None'[];
       mentions?: string[];
       replies?: string[];
-      masquerade?: { name?: string; avatar?: string };
+      masquerade?: { name?: string | null; avatar?: string | null };
     }[];
     users: {
       _id: string;
@@ -2071,12 +2071,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       relations?: {
         _id: string;
@@ -2089,13 +2089,13 @@ export type Routes = {
           | 'Blocked'
           | 'BlockedOther';
       }[];
-      badges?: number;
+      badges?: number | null;
       status?: {
-        text?: string;
+        text?: string | null;
         presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
       };
       profile?: {
-        content?: string;
+        content?: string | null;
         background?: {
           _id: string;
           tag: string;
@@ -2108,15 +2108,15 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
       };
-      flags?: number;
+      flags?: number | null;
       privileged?: boolean;
       bot?: string;
       relationship?:
@@ -2127,11 +2127,11 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-      online?: boolean;
+      online?: boolean | null;
     }[];
     members?: {
       _id: { server: string; user: string };
-      nickname?: string;
+      nickname?: string | null;
       avatar?: {
         _id: string;
         tag: string;
@@ -2144,12 +2144,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       roles?: string[];
     }[];
@@ -2165,10 +2165,10 @@ export type Routes = {
   method: 'GET';
   response: {
     _id: string;
-    nonce?: string;
+    nonce?: string | null;
     channel: string;
     author: string;
-    content?: string;
+    content?: string | null;
     system?:
       | { type: 'text'; content: string }
       | { type: 'user_added'; id: string; by: string }
@@ -2192,23 +2192,23 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     }[];
     edited?: string;
     embeds?:
       | {
         type: 'Website';
-        url?: string;
-        original_url?: string;
+        url?: string | null;
+        original_url?: string | null;
         special?:
           | 'None'
           | 'GIF'
-          | { type: 'YouTube'; id: string; timestamp?: string }
+          | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
             type: 'Twitch';
@@ -2218,8 +2218,8 @@ export type Routes = {
           | { type: 'Spotify'; content_type: string; id: string }
           | 'Soundcloud'
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string;
-        description?: string;
+        title?: string | null;
+        description?: string | null;
         image?: {
           url: string;
           width: number;
@@ -2227,9 +2227,9 @@ export type Routes = {
           size: 'Large' | 'Preview';
         };
         video?: { url: string; width: number; height: number };
-        site_name?: string;
-        icon_url?: string;
-        colour?: string;
+        site_name?: string | null;
+        icon_url?: string | null;
+        colour?: string | null;
       }
       | {
         type: 'Image';
@@ -2241,10 +2241,10 @@ export type Routes = {
       | { type: 'Video'; url: string; width: number; height: number }
       | {
         type: 'Text';
-        icon_url?: string;
-        url?: string;
-        title?: string;
-        description?: string;
+        icon_url?: string | null;
+        url?: string | null;
+        title?: string | null;
+        description?: string | null;
         media?: {
           _id: string;
           tag: string;
@@ -2257,19 +2257,19 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
-        colour?: string;
+        colour?: string | null;
       }
       | 'None'[];
     mentions?: string[];
     replies?: string[];
-    masquerade?: { name?: string; avatar?: string };
+    masquerade?: { name?: string | null; avatar?: string | null };
   };
 } | {
   path: `/channels/${string}/messages/${string}`;
@@ -2282,10 +2282,10 @@ export type Routes = {
   method: 'PATCH';
   response: {
     _id: string;
-    nonce?: string;
+    nonce?: string | null;
     channel: string;
     author: string;
-    content?: string;
+    content?: string | null;
     system?:
       | { type: 'text'; content: string }
       | { type: 'user_added'; id: string; by: string }
@@ -2309,23 +2309,23 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     }[];
     edited?: string;
     embeds?:
       | {
         type: 'Website';
-        url?: string;
-        original_url?: string;
+        url?: string | null;
+        original_url?: string | null;
         special?:
           | 'None'
           | 'GIF'
-          | { type: 'YouTube'; id: string; timestamp?: string }
+          | { type: 'YouTube'; id: string; timestamp?: string | null }
           | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
           | {
             type: 'Twitch';
@@ -2335,8 +2335,8 @@ export type Routes = {
           | { type: 'Spotify'; content_type: string; id: string }
           | 'Soundcloud'
           | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string;
-        description?: string;
+        title?: string | null;
+        description?: string | null;
         image?: {
           url: string;
           width: number;
@@ -2344,9 +2344,9 @@ export type Routes = {
           size: 'Large' | 'Preview';
         };
         video?: { url: string; width: number; height: number };
-        site_name?: string;
-        icon_url?: string;
-        colour?: string;
+        site_name?: string | null;
+        icon_url?: string | null;
+        colour?: string | null;
       }
       | {
         type: 'Image';
@@ -2358,10 +2358,10 @@ export type Routes = {
       | { type: 'Video'; url: string; width: number; height: number }
       | {
         type: 'Text';
-        icon_url?: string;
-        url?: string;
-        title?: string;
-        description?: string;
+        icon_url?: string | null;
+        url?: string | null;
+        title?: string | null;
+        description?: string | null;
         media?: {
           _id: string;
           tag: string;
@@ -2374,19 +2374,19 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
-        colour?: string;
+        colour?: string | null;
       }
       | 'None'[];
     mentions?: string[];
     replies?: string[];
-    masquerade?: { name?: string; avatar?: string };
+    masquerade?: { name?: string | null; avatar?: string | null };
   };
 } | {
   path: `/channels/${string}/messages/bulk`;
@@ -2402,13 +2402,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -2422,22 +2422,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -2450,14 +2450,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -2466,7 +2466,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -2479,12 +2479,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -2514,13 +2514,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -2534,22 +2534,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -2562,14 +2562,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -2578,7 +2578,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -2591,12 +2591,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -2611,13 +2611,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -2631,22 +2631,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -2659,14 +2659,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -2675,7 +2675,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -2688,12 +2688,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -2708,19 +2708,19 @@ export type Routes = {
       _id: string;
       owner: string;
       name: string;
-      description?: string;
+      description?: string | null;
       channels: string[];
       categories?: { id: string; title: string; channels: string[] }[];
       system_messages?: {
-        user_joined?: string;
-        user_left?: string;
-        user_kicked?: string;
-        user_banned?: string;
+        user_joined?: string | null;
+        user_left?: string | null;
+        user_kicked?: string | null;
+        user_banned?: string | null;
       };
       roles?: {
         name: string;
         permissions: { a: number; d: number };
-        colour?: string;
+        colour?: string | null;
         hoist?: boolean;
         rank?: number;
       };
@@ -2737,12 +2737,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       banner?: {
         _id: string;
@@ -2756,14 +2756,14 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
-      flags?: number;
+      flags?: number | null;
       nsfw?: boolean;
       analytics?: boolean;
       discoverable?: boolean;
@@ -2773,13 +2773,13 @@ export type Routes = {
       _id: string;
       active: boolean;
       recipients: string[];
-      last_message_id?: string;
+      last_message_id?: string | null;
     } | {
       channel_type: 'Group';
       _id: string;
       name: string;
       owner: string;
-      description?: string;
+      description?: string | null;
       recipients: string[];
       icon?: {
         _id: string;
@@ -2793,22 +2793,22 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
-      last_message_id?: string;
-      permissions?: number;
+      last_message_id?: string | null;
+      permissions?: number | null;
       nsfw?: boolean;
     } | {
       channel_type: 'TextChannel';
       _id: string;
       server: string;
       name: string;
-      description?: string;
+      description?: string | null;
       icon?: {
         _id: string;
         tag: string;
@@ -2821,14 +2821,14 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
-      last_message_id?: string;
+      last_message_id?: string | null;
       default_permissions?: { a: number; d: number };
       role_permissions?: { a: number; d: number };
       nsfw?: boolean;
@@ -2837,7 +2837,7 @@ export type Routes = {
       _id: string;
       server: string;
       name: string;
-      description?: string;
+      description?: string | null;
       icon?: {
         _id: string;
         tag: string;
@@ -2850,12 +2850,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       default_permissions?: { a: number; d: number };
       role_permissions?: { a: number; d: number };
@@ -2870,19 +2870,19 @@ export type Routes = {
     _id: string;
     owner: string;
     name: string;
-    description?: string;
+    description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[];
     system_messages?: {
-      user_joined?: string;
-      user_left?: string;
-      user_kicked?: string;
-      user_banned?: string;
+      user_joined?: string | null;
+      user_left?: string | null;
+      user_kicked?: string | null;
+      user_banned?: string | null;
     };
     roles?: {
       name: string;
       permissions: { a: number; d: number };
-      colour?: string;
+      colour?: string | null;
       hoist?: boolean;
       rank?: number;
     };
@@ -2899,12 +2899,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     banner?: {
       _id: string;
@@ -2918,14 +2918,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    flags?: number;
+    flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
     discoverable?: boolean;
@@ -2943,19 +2943,19 @@ export type Routes = {
     _id: string;
     owner: string;
     name: string;
-    description?: string;
+    description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[];
     system_messages?: {
-      user_joined?: string;
-      user_left?: string;
-      user_kicked?: string;
-      user_banned?: string;
+      user_joined?: string | null;
+      user_left?: string | null;
+      user_kicked?: string | null;
+      user_banned?: string | null;
     };
     roles?: {
       name: string;
       permissions: { a: number; d: number };
-      colour?: string;
+      colour?: string | null;
       hoist?: boolean;
       rank?: number;
     };
@@ -2972,12 +2972,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     banner?: {
       _id: string;
@@ -2991,14 +2991,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    flags?: number;
+    flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
     discoverable?: boolean;
@@ -3017,13 +3017,13 @@ export type Routes = {
     _id: string;
     active: boolean;
     recipients: string[];
-    last_message_id?: string;
+    last_message_id?: string | null;
   } | {
     channel_type: 'Group';
     _id: string;
     name: string;
     owner: string;
-    description?: string;
+    description?: string | null;
     recipients: string[];
     icon?: {
       _id: string;
@@ -3037,22 +3037,22 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
-    permissions?: number;
+    last_message_id?: string | null;
+    permissions?: number | null;
     nsfw?: boolean;
   } | {
     channel_type: 'TextChannel';
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -3065,14 +3065,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    last_message_id?: string;
+    last_message_id?: string | null;
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
     nsfw?: boolean;
@@ -3081,7 +3081,7 @@ export type Routes = {
     _id: string;
     server: string;
     name: string;
-    description?: string;
+    description?: string | null;
     icon?: {
       _id: string;
       tag: string;
@@ -3094,12 +3094,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     default_permissions?: { a: number; d: number };
     role_permissions?: { a: number; d: number };
@@ -3112,7 +3112,7 @@ export type Routes = {
   response: {
     members: {
       _id: { server: string; user: string };
-      nickname?: string;
+      nickname?: string | null;
       avatar?: {
         _id: string;
         tag: string;
@@ -3125,12 +3125,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       roles?: string[];
     }[];
@@ -3149,12 +3149,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       relations?: {
         _id: string;
@@ -3167,13 +3167,13 @@ export type Routes = {
           | 'Blocked'
           | 'BlockedOther';
       }[];
-      badges?: number;
+      badges?: number | null;
       status?: {
-        text?: string;
+        text?: string | null;
         presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
       };
       profile?: {
-        content?: string;
+        content?: string | null;
         background?: {
           _id: string;
           tag: string;
@@ -3186,15 +3186,15 @@ export type Routes = {
             | 'Audio';
           content_type: string;
           size: number;
-          deleted?: boolean;
-          reported?: boolean;
-          message_id?: string;
-          user_id?: string;
-          server_id?: string;
-          object_id?: string;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
         };
       };
-      flags?: number;
+      flags?: number | null;
       privileged?: boolean;
       bot?: string;
       relationship?:
@@ -3205,7 +3205,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-      online?: boolean;
+      online?: boolean | null;
     }[];
   };
 } | {
@@ -3214,7 +3214,7 @@ export type Routes = {
   method: 'GET';
   response: {
     _id: { server: string; user: string };
-    nickname?: string;
+    nickname?: string | null;
     avatar?: {
       _id: string;
       tag: string;
@@ -3227,12 +3227,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     roles?: string[];
   };
@@ -3247,7 +3247,7 @@ export type Routes = {
   method: 'PATCH';
   response: {
     _id: { server: string; user: string };
-    nickname?: string;
+    nickname?: string | null;
     avatar?: {
       _id: string;
       tag: string;
@@ -3260,12 +3260,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     roles?: string[];
   };
@@ -3273,7 +3273,7 @@ export type Routes = {
   path: `/servers/${string}/bans/${string}`;
   parts: 4;
   method: 'PUT';
-  response: { _id: { server: string; user: string }; reason?: string };
+  response: { _id: { server: string; user: string }; reason?: string | null };
 } | {
   path: `/servers/${string}/bans/${string}`;
   parts: 4;
@@ -3299,15 +3299,15 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
     }[];
-    bans: { _id: { server: string; user: string }; reason?: string }[];
+    bans: { _id: { server: string; user: string }; reason?: string | null }[];
   };
 } | {
   path: `/servers/${string}/invites`;
@@ -3329,7 +3329,7 @@ export type Routes = {
     role: {
       name: string;
       permissions: { a: number; d: number };
-      colour?: string;
+      colour?: string | null;
       hoist?: boolean;
       rank?: number;
     };
@@ -3346,7 +3346,7 @@ export type Routes = {
   response: {
     name: string;
     permissions: { a: number; d: number };
-    colour?: string;
+    colour?: string | null;
     hoist?: boolean;
     rank?: number;
   };
@@ -3358,19 +3358,19 @@ export type Routes = {
     _id: string;
     owner: string;
     name: string;
-    description?: string;
+    description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[];
     system_messages?: {
-      user_joined?: string;
-      user_left?: string;
-      user_kicked?: string;
-      user_banned?: string;
+      user_joined?: string | null;
+      user_left?: string | null;
+      user_kicked?: string | null;
+      user_banned?: string | null;
     };
     roles?: {
       name: string;
       permissions: { a: number; d: number };
-      colour?: string;
+      colour?: string | null;
       hoist?: boolean;
       rank?: number;
     };
@@ -3387,12 +3387,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     banner?: {
       _id: string;
@@ -3406,14 +3406,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    flags?: number;
+    flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
     discoverable?: boolean;
@@ -3426,19 +3426,19 @@ export type Routes = {
     _id: string;
     owner: string;
     name: string;
-    description?: string;
+    description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[];
     system_messages?: {
-      user_joined?: string;
-      user_left?: string;
-      user_kicked?: string;
-      user_banned?: string;
+      user_joined?: string | null;
+      user_left?: string | null;
+      user_kicked?: string | null;
+      user_banned?: string | null;
     };
     roles?: {
       name: string;
       permissions: { a: number; d: number };
-      colour?: string;
+      colour?: string | null;
       hoist?: boolean;
       rank?: number;
     };
@@ -3455,12 +3455,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     banner?: {
       _id: string;
@@ -3474,14 +3474,14 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
-    flags?: number;
+    flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
     discoverable?: boolean;
@@ -3507,12 +3507,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     server_banner?: {
       _id: string;
@@ -3526,16 +3526,16 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     channel_id: string;
     channel_name: string;
-    channel_description?: string;
+    channel_description?: string | null;
     user_name: string;
     user_avatar?: {
       _id: string;
@@ -3549,12 +3549,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
     member_count: number;
   } | {
@@ -3562,7 +3562,7 @@ export type Routes = {
     code: string;
     channel_id: string;
     channel_name: string;
-    channel_description?: string;
+    channel_description?: string | null;
     user_name: string;
     user_avatar?: {
       _id: string;
@@ -3576,12 +3576,12 @@ export type Routes = {
         | 'Audio';
       content_type: string;
       size: number;
-      deleted?: boolean;
-      reported?: boolean;
-      message_id?: string;
-      user_id?: string;
-      server_id?: string;
-      object_id?: string;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
     };
   };
 } | {
@@ -3595,13 +3595,13 @@ export type Routes = {
       _id: string;
       active: boolean;
       recipients: string[];
-      last_message_id?: string;
+      last_message_id?: string | null;
     } | {
       channel_type: 'Group';
       _id: string;
       name: string;
       owner: string;
-      description?: string;
+      description?: string | null;
       recipients: string[];
       icon?: {
         _id: string;
@@ -3615,22 +3615,22 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
-      last_message_id?: string;
-      permissions?: number;
+      last_message_id?: string | null;
+      permissions?: number | null;
       nsfw?: boolean;
     } | {
       channel_type: 'TextChannel';
       _id: string;
       server: string;
       name: string;
-      description?: string;
+      description?: string | null;
       icon?: {
         _id: string;
         tag: string;
@@ -3643,14 +3643,14 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
-      last_message_id?: string;
+      last_message_id?: string | null;
       default_permissions?: { a: number; d: number };
       role_permissions?: { a: number; d: number };
       nsfw?: boolean;
@@ -3659,7 +3659,7 @@ export type Routes = {
       _id: string;
       server: string;
       name: string;
-      description?: string;
+      description?: string | null;
       icon?: {
         _id: string;
         tag: string;
@@ -3672,12 +3672,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       default_permissions?: { a: number; d: number };
       role_permissions?: { a: number; d: number };
@@ -3687,19 +3687,19 @@ export type Routes = {
       _id: string;
       owner: string;
       name: string;
-      description?: string;
+      description?: string | null;
       channels: string[];
       categories?: { id: string; title: string; channels: string[] }[];
       system_messages?: {
-        user_joined?: string;
-        user_left?: string;
-        user_kicked?: string;
-        user_banned?: string;
+        user_joined?: string | null;
+        user_left?: string | null;
+        user_kicked?: string | null;
+        user_banned?: string | null;
       };
       roles?: {
         name: string;
         permissions: { a: number; d: number };
-        colour?: string;
+        colour?: string | null;
         hoist?: boolean;
         rank?: number;
       };
@@ -3716,12 +3716,12 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
       banner?: {
         _id: string;
@@ -3735,14 +3735,14 @@ export type Routes = {
           | 'Audio';
         content_type: string;
         size: number;
-        deleted?: boolean;
-        reported?: boolean;
-        message_id?: string;
-        user_id?: string;
-        server_id?: string;
-        object_id?: string;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
       };
-      flags?: number;
+      flags?: number | null;
       nsfw?: boolean;
       analytics?: boolean;
       discoverable?: boolean;
@@ -3800,7 +3800,7 @@ export type Routes = {
   response:
     | {
       result: 'Success';
-      _id?: string;
+      _id?: string | null;
       user_id: string;
       token: string;
       name: string;
@@ -3833,7 +3833,7 @@ export type Routes = {
   parts: 3;
   method: 'PATCH';
   response: {
-    _id?: string;
+    _id?: string | null;
     user_id: string;
     token: string;
     name: string;
@@ -3875,7 +3875,7 @@ export type Routes = {
   method: 'GET';
   response: {
     _id: { channel: string; user: string };
-    last_id?: string;
+    last_id?: string | null;
     mentions?: string[];
   }[];
 };
