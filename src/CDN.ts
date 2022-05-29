@@ -20,7 +20,7 @@ export class CDN {
   }
 
   invite(code: string): string {
-    return `${this.options.app}/${code}`;
+    return `${this.options.app}/invite/${code}`;
   }
 
   banner(hash: string, size = 1024): string {
