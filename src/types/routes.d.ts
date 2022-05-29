@@ -52,7 +52,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -129,7 +129,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -206,7 +206,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -283,7 +283,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -590,7 +590,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -667,7 +667,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -744,7 +744,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -821,7 +821,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -960,7 +960,7 @@ export type Routes = {
           | 'Incoming'
           | 'Blocked'
           | 'BlockedOther';
-      }[];
+      }[] | null;
       badges?: number | null;
       status?: {
         text?: string | null;
@@ -1072,7 +1072,7 @@ export type Routes = {
           | 'Incoming'
           | 'Blocked'
           | 'BlockedOther';
-      }[];
+      }[] | null;
       badges?: number | null;
       status?: {
         text?: string | null;
@@ -1354,7 +1354,7 @@ export type Routes = {
         | 'Incoming'
         | 'Blocked'
         | 'BlockedOther';
-    }[];
+    }[] | null;
     badges?: number | null;
     status?: {
       text?: string | null;
@@ -1445,7 +1445,7 @@ export type Routes = {
       user_id?: string | null;
       server_id?: string | null;
       object_id?: string | null;
-    }[];
+    }[] | null;
     edited?: string;
     embeds?:
       | {
@@ -1513,9 +1513,10 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[];
-    mentions?: string[];
-    replies?: string[];
+      | 'None'[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
     masquerade?: { name?: string | null; avatar?: string | null };
   }[] | {
     messages: {
@@ -1553,7 +1554,7 @@ export type Routes = {
         user_id?: string | null;
         server_id?: string | null;
         object_id?: string | null;
-      }[];
+      }[] | null;
       edited?: string;
       embeds?:
         | {
@@ -1621,9 +1622,10 @@ export type Routes = {
           };
           colour?: string | null;
         }
-        | 'None'[];
-      mentions?: string[];
-      replies?: string[];
+        | 'None'[]
+        | null;
+      mentions?: string[] | null;
+      replies?: string[] | null;
       masquerade?: { name?: string | null; avatar?: string | null };
     }[];
     users: {
@@ -1658,7 +1660,7 @@ export type Routes = {
           | 'Incoming'
           | 'Blocked'
           | 'BlockedOther';
-      }[];
+      }[] | null;
       badges?: number | null;
       status?: {
         text?: string | null;
@@ -1721,8 +1723,8 @@ export type Routes = {
         server_id?: string | null;
         object_id?: string | null;
       };
-      roles?: string[];
-    }[];
+      roles?: string[] | null;
+    }[] | null;
   };
 } | {
   path: `/channels/${string}/messages`;
@@ -1763,7 +1765,7 @@ export type Routes = {
       user_id?: string | null;
       server_id?: string | null;
       object_id?: string | null;
-    }[];
+    }[] | null;
     edited?: string;
     embeds?:
       | {
@@ -1831,9 +1833,10 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[];
-    mentions?: string[];
-    replies?: string[];
+      | 'None'[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
     masquerade?: { name?: string | null; avatar?: string | null };
   };
 } | {
@@ -1875,7 +1878,7 @@ export type Routes = {
       user_id?: string | null;
       server_id?: string | null;
       object_id?: string | null;
-    }[];
+    }[] | null;
     edited?: string;
     embeds?:
       | {
@@ -1943,9 +1946,10 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[];
-    mentions?: string[];
-    replies?: string[];
+      | 'None'[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
     masquerade?: { name?: string | null; avatar?: string | null };
   }[] | {
     messages: {
@@ -1983,7 +1987,7 @@ export type Routes = {
         user_id?: string | null;
         server_id?: string | null;
         object_id?: string | null;
-      }[];
+      }[] | null;
       edited?: string;
       embeds?:
         | {
@@ -2051,9 +2055,10 @@ export type Routes = {
           };
           colour?: string | null;
         }
-        | 'None'[];
-      mentions?: string[];
-      replies?: string[];
+        | 'None'[]
+        | null;
+      mentions?: string[] | null;
+      replies?: string[] | null;
       masquerade?: { name?: string | null; avatar?: string | null };
     }[];
     users: {
@@ -2088,7 +2093,7 @@ export type Routes = {
           | 'Incoming'
           | 'Blocked'
           | 'BlockedOther';
-      }[];
+      }[] | null;
       badges?: number | null;
       status?: {
         text?: string | null;
@@ -2151,8 +2156,8 @@ export type Routes = {
         server_id?: string | null;
         object_id?: string | null;
       };
-      roles?: string[];
-    }[];
+      roles?: string[] | null;
+    }[] | null;
   };
 } | {
   path: `/channels/${string}/messages/stale`;
@@ -2198,7 +2203,7 @@ export type Routes = {
       user_id?: string | null;
       server_id?: string | null;
       object_id?: string | null;
-    }[];
+    }[] | null;
     edited?: string;
     embeds?:
       | {
@@ -2266,9 +2271,10 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[];
-    mentions?: string[];
-    replies?: string[];
+      | 'None'[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
     masquerade?: { name?: string | null; avatar?: string | null };
   };
 } | {
@@ -2315,7 +2321,7 @@ export type Routes = {
       user_id?: string | null;
       server_id?: string | null;
       object_id?: string | null;
-    }[];
+    }[] | null;
     edited?: string;
     embeds?:
       | {
@@ -2383,9 +2389,10 @@ export type Routes = {
         };
         colour?: string | null;
       }
-      | 'None'[];
-    mentions?: string[];
-    replies?: string[];
+      | 'None'[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
     masquerade?: { name?: string | null; avatar?: string | null };
   };
 } | {
@@ -2710,7 +2717,7 @@ export type Routes = {
       name: string;
       description?: string | null;
       channels: string[];
-      categories?: { id: string; title: string; channels: string[] }[];
+      categories?: { id: string; title: string; channels: string[] }[] | null;
       system_messages?: {
         user_joined?: string | null;
         user_left?: string | null;
@@ -2872,7 +2879,7 @@ export type Routes = {
     name: string;
     description?: string | null;
     channels: string[];
-    categories?: { id: string; title: string; channels: string[] }[];
+    categories?: { id: string; title: string; channels: string[] }[] | null;
     system_messages?: {
       user_joined?: string | null;
       user_left?: string | null;
@@ -2945,7 +2952,7 @@ export type Routes = {
     name: string;
     description?: string | null;
     channels: string[];
-    categories?: { id: string; title: string; channels: string[] }[];
+    categories?: { id: string; title: string; channels: string[] }[] | null;
     system_messages?: {
       user_joined?: string | null;
       user_left?: string | null;
@@ -3132,7 +3139,7 @@ export type Routes = {
         server_id?: string | null;
         object_id?: string | null;
       };
-      roles?: string[];
+      roles?: string[] | null;
     }[];
     users: {
       _id: string;
@@ -3166,7 +3173,7 @@ export type Routes = {
           | 'Incoming'
           | 'Blocked'
           | 'BlockedOther';
-      }[];
+      }[] | null;
       badges?: number | null;
       status?: {
         text?: string | null;
@@ -3234,7 +3241,7 @@ export type Routes = {
       server_id?: string | null;
       object_id?: string | null;
     };
-    roles?: string[];
+    roles?: string[] | null;
   };
 } | {
   path: `/servers/${string}/members/${string}`;
@@ -3267,7 +3274,7 @@ export type Routes = {
       server_id?: string | null;
       object_id?: string | null;
     };
-    roles?: string[];
+    roles?: string[] | null;
   };
 } | {
   path: `/servers/${string}/bans/${string}`;
@@ -3360,7 +3367,7 @@ export type Routes = {
     name: string;
     description?: string | null;
     channels: string[];
-    categories?: { id: string; title: string; channels: string[] }[];
+    categories?: { id: string; title: string; channels: string[] }[] | null;
     system_messages?: {
       user_joined?: string | null;
       user_left?: string | null;
@@ -3428,7 +3435,7 @@ export type Routes = {
     name: string;
     description?: string | null;
     channels: string[];
-    categories?: { id: string; title: string; channels: string[] }[];
+    categories?: { id: string; title: string; channels: string[] }[] | null;
     system_messages?: {
       user_joined?: string | null;
       user_left?: string | null;
@@ -3689,7 +3696,7 @@ export type Routes = {
       name: string;
       description?: string | null;
       channels: string[];
-      categories?: { id: string; title: string; channels: string[] }[];
+      categories?: { id: string; title: string; channels: string[] }[] | null;
       system_messages?: {
         user_joined?: string | null;
         user_left?: string | null;
@@ -3876,7 +3883,7 @@ export type Routes = {
   response: {
     _id: { channel: string; user: string };
     last_id?: string | null;
-    mentions?: string[];
+    mentions?: string[] | null;
   }[];
 };
 export type GetRoutes = Extract<Routes, { method: 'GET' }>;

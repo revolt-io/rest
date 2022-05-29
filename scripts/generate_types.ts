@@ -22,7 +22,9 @@ function getType(schema: ReferenceObject | SchemaObject): string {
 
   const extractedTypes: Record<string, string> = {};
 
-  if (schema.items) return getType(schema.items) + '[]';
+  if (schema.items) {
+    return getType(schema.items) + '[]' + (schema.nullable ? ' | null' : '');
+  }
   if (schema.allOf) {
     return (schema.allOf as ReferenceObject[]).map((x) => getType(x)).join(
       ' & ',
