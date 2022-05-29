@@ -4,14 +4,14 @@ export type Routes = {
   method: 'GET';
   response: {
     revolt: string;
-    features: {
-      captcha: { enabled: boolean; key: string };
+    features: ({
+      captcha: ({ enabled: boolean; key: string });
       email: boolean;
       invite_only: boolean;
-      autumn: { enabled: boolean; url: string };
-      january: { enabled: boolean; url: string };
-      voso: { enabled: boolean; url: string; ws: string };
-    };
+      autumn: ({ enabled: boolean; url: string });
+      january: ({ enabled: boolean; url: string });
+      voso: ({ enabled: boolean; url: string; ws: string });
+    });
     ws: string;
     app: string;
     vapid: string;
@@ -23,25 +23,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -54,43 +57,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -100,25 +113,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -131,43 +147,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -177,25 +203,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -208,43 +237,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -254,25 +293,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -285,43 +327,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -335,31 +387,34 @@ export type Routes = {
   method: 'GET';
   response: {
     content?: string | null;
-    background?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    background?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
   };
 } | {
   path: `/users/dms`;
   parts: 2;
   method: 'GET';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -372,25 +427,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -400,27 +458,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -429,34 +490,37 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  }[];
+  })[];
 } | {
   path: `/users/${string}/dm`;
   parts: 3;
   method: 'GET';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -469,25 +533,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -497,27 +564,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -526,29 +596,32 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/users/${string}/mutual`;
   parts: 3;
@@ -561,25 +634,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -592,43 +668,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -638,25 +724,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -669,43 +758,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -715,25 +814,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -746,43 +848,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -792,25 +904,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -823,43 +938,53 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   };
 } | {
@@ -885,25 +1010,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     description?: string | null;
   };
 } | {
@@ -916,7 +1044,7 @@ export type Routes = {
   parts: 2;
   method: 'GET';
   response: {
-    bot: {
+    bot: ({
       _id: string;
       owner: string;
       token: string;
@@ -927,29 +1055,32 @@ export type Routes = {
       terms_of_service_url?: string | null;
       privacy_policy_url?: string | null;
       flags?: number | null;
-    };
-    user: {
+    });
+    user: ({
       _id: string;
       username: string;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       relations?: {
         _id: string;
         status:
@@ -962,45 +1093,55 @@ export type Routes = {
           | 'BlockedOther';
       }[] | null;
       badges?: number | null;
-      status?: {
-        text?: string | null;
-        presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-      };
-      profile?: {
-        content?: string | null;
-        background?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-      };
+      status?:
+        | ({
+          text?: string | null;
+          presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+        })
+        | null;
+      profile?:
+        | ({
+          content?: string | null;
+          background?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+        })
+        | null;
       flags?: number | null;
       privileged?: boolean;
-      bot?: { owner: string };
+      bot?: ({ owner: string }) | null;
       relationship?:
-        | 'None'
-        | 'User'
-        | 'Friend'
-        | 'Outgoing'
-        | 'Incoming'
-        | 'Blocked'
-        | 'BlockedOther';
+        | (
+          | 'None'
+          | 'User'
+          | 'Friend'
+          | 'Outgoing'
+          | 'Incoming'
+          | 'Blocked'
+          | 'BlockedOther'
+        )
+        | null;
       online?: boolean | null;
-    };
+    });
   };
 } | {
   path: `/bots/${string}`;
@@ -1043,25 +1184,28 @@ export type Routes = {
     users: {
       _id: string;
       username: string;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       relations?: {
         _id: string;
         status:
@@ -1074,43 +1218,53 @@ export type Routes = {
           | 'BlockedOther';
       }[] | null;
       badges?: number | null;
-      status?: {
-        text?: string | null;
-        presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-      };
-      profile?: {
-        content?: string | null;
-        background?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-      };
+      status?:
+        | ({
+          text?: string | null;
+          presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+        })
+        | null;
+      profile?:
+        | ({
+          content?: string | null;
+          background?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+        })
+        | null;
       flags?: number | null;
       privileged?: boolean;
-      bot?: { owner: string };
+      bot?: ({ owner: string }) | null;
       relationship?:
-        | 'None'
-        | 'User'
-        | 'Friend'
-        | 'Outgoing'
-        | 'Incoming'
-        | 'Blocked'
-        | 'BlockedOther';
+        | (
+          | 'None'
+          | 'User'
+          | 'Friend'
+          | 'Outgoing'
+          | 'Incoming'
+          | 'Blocked'
+          | 'BlockedOther'
+        )
+        | null;
       online?: boolean | null;
     }[];
   };
@@ -1123,7 +1277,7 @@ export type Routes = {
   path: `/channels/${string}`;
   parts: 2;
   method: 'GET';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -1136,25 +1290,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -1164,27 +1321,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -1193,29 +1353,32 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/channels/${string}`;
   parts: 2;
@@ -1225,7 +1388,7 @@ export type Routes = {
   path: `/channels/${string}`;
   parts: 2;
   method: 'PATCH';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -1238,25 +1401,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -1266,27 +1432,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -1295,29 +1464,32 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/channels/${string}/members`;
   parts: 3;
@@ -1325,25 +1497,28 @@ export type Routes = {
   response: {
     _id: string;
     username: string;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     relations?: {
       _id: string;
       status:
@@ -1356,176 +1531,78 @@ export type Routes = {
         | 'BlockedOther';
     }[] | null;
     badges?: number | null;
-    status?: {
-      text?: string | null;
-      presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-    };
-    profile?: {
-      content?: string | null;
-      background?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-    };
+    status?:
+      | ({
+        text?: string | null;
+        presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+      })
+      | null;
+    profile?:
+      | ({
+        content?: string | null;
+        background?:
+          | ({
+            _id: string;
+            tag: string;
+            filename: string;
+            metadata: ((
+              | { type: 'File' }
+              | { type: 'Text' }
+              | { type: 'Image'; width: number; height: number }
+              | { type: 'Video'; width: number; height: number }
+              | { type: 'Audio' }
+            ));
+            content_type: string;
+            size: number;
+            deleted?: boolean | null;
+            reported?: boolean | null;
+            message_id?: string | null;
+            user_id?: string | null;
+            server_id?: string | null;
+            object_id?: string | null;
+          })
+          | null;
+      })
+      | null;
     flags?: number | null;
     privileged?: boolean;
-    bot?: { owner: string };
+    bot?: ({ owner: string }) | null;
     relationship?:
-      | 'None'
-      | 'User'
-      | 'Friend'
-      | 'Outgoing'
-      | 'Incoming'
-      | 'Blocked'
-      | 'BlockedOther';
+      | (
+        | 'None'
+        | 'User'
+        | 'Friend'
+        | 'Outgoing'
+        | 'Incoming'
+        | 'Blocked'
+        | 'BlockedOther'
+      )
+      | null;
     online?: boolean | null;
   }[];
 } | {
   path: `/channels/${string}/invites`;
   parts: 3;
   method: 'POST';
-  response: {
+  response: ({
     type: 'Server';
     _id: string;
     server: string;
     creator: string;
     channel: string;
-  } | { type: 'Group'; _id: string; creator: string; channel: string };
+  } | { type: 'Group'; _id: string; creator: string; channel: string });
 } | {
   path: `/channels/${string}/messages`;
   parts: 3;
   method: 'GET';
-  response: {
+  response: ({
     _id: string;
     nonce?: string | null;
     channel: string;
     author: string;
     content?: string | null;
     system?:
-      | { type: 'text'; content: string }
-      | { type: 'user_added'; id: string; by: string }
-      | { type: 'user_remove'; id: string; by: string }
-      | { type: 'user_joined'; id: string }
-      | { type: 'user_left'; id: string }
-      | { type: 'user_kicked'; id: string }
-      | { type: 'user_banned'; id: string }
-      | { type: 'channel_renamed'; name: string; by: string }
-      | { type: 'channel_description_changed'; by: string }
-      | { type: 'channel_icon_changed'; by: string };
-    attachments?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    }[] | null;
-    edited?: string;
-    embeds?:
-      | {
-        type: 'Website';
-        url?: string | null;
-        original_url?: string | null;
-        special?:
-          | { type: 'None' }
-          | { type: 'GIF' }
-          | { type: 'YouTube'; id: string; timestamp?: string | null }
-          | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-          | {
-            type: 'Twitch';
-            content_type: 'Channel' | 'Video' | 'Clip';
-            id: string;
-          }
-          | { type: 'Spotify'; content_type: string; id: string }
-          | { type: 'Soundcloud' }
-          | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string | null;
-        description?: string | null;
-        image?: {
-          url: string;
-          width: number;
-          height: number;
-          size: 'Large' | 'Preview';
-        };
-        video?: { url: string; width: number; height: number };
-        site_name?: string | null;
-        icon_url?: string | null;
-        colour?: string | null;
-      }
-      | {
-        type: 'Image';
-        url: string;
-        width: number;
-        height: number;
-        size: 'Large' | 'Preview';
-      }
-      | { type: 'Video'; url: string; width: number; height: number }
-      | {
-        type: 'Text';
-        icon_url?: string | null;
-        url?: string | null;
-        title?: string | null;
-        description?: string | null;
-        media?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-        colour?: string | null;
-      }
-      | { type: 'None' }[]
-      | null;
-    mentions?: string[] | null;
-    replies?: string[] | null;
-    masquerade?: { name?: string | null; avatar?: string | null };
-  }[] | {
-    messages: {
-      _id: string;
-      nonce?: string | null;
-      channel: string;
-      author: string;
-      content?: string | null;
-      system?:
+      | ((
         | { type: 'text'; content: string }
         | { type: 'user_added'; id: string; by: string }
         | { type: 'user_remove'; id: string; by: string }
@@ -1535,54 +1612,67 @@ export type Routes = {
         | { type: 'user_banned'; id: string }
         | { type: 'channel_renamed'; name: string; by: string }
         | { type: 'channel_description_changed'; by: string }
-        | { type: 'channel_icon_changed'; by: string };
-      attachments?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      }[] | null;
-      edited?: string;
-      embeds?:
+        | { type: 'channel_icon_changed'; by: string }
+      ))
+      | null;
+    attachments?: {
+      _id: string;
+      tag: string;
+      filename: string;
+      metadata: ((
+        | { type: 'File' }
+        | { type: 'Text' }
+        | { type: 'Image'; width: number; height: number }
+        | { type: 'Video'; width: number; height: number }
+        | { type: 'Audio' }
+      ));
+      content_type: string;
+      size: number;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
+    }[] | null;
+    edited?: (string) | null;
+    embeds?:
+      | (
         | {
           type: 'Website';
           url?: string | null;
           original_url?: string | null;
           special?:
-            | { type: 'None' }
-            | { type: 'GIF' }
-            | { type: 'YouTube'; id: string; timestamp?: string | null }
-            | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-            | {
-              type: 'Twitch';
-              content_type: 'Channel' | 'Video' | 'Clip';
-              id: string;
-            }
-            | { type: 'Spotify'; content_type: string; id: string }
-            | { type: 'Soundcloud' }
-            | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
+            | ((
+              | { type: 'None' }
+              | { type: 'GIF' }
+              | { type: 'YouTube'; id: string; timestamp?: string | null }
+              | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+              | {
+                type: 'Twitch';
+                content_type: 'Channel' | 'Video' | 'Clip';
+                id: string;
+              }
+              | { type: 'Spotify'; content_type: string; id: string }
+              | { type: 'Soundcloud' }
+              | {
+                type: 'Bandcamp';
+                content_type: 'Album' | 'Track';
+                id: string;
+              }
+            ))
+            | null;
           title?: string | null;
           description?: string | null;
-          image?: {
-            url: string;
-            width: number;
-            height: number;
-            size: 'Large' | 'Preview';
-          };
-          video?: { url: string; width: number; height: number };
+          image?:
+            | ({
+              url: string;
+              width: number;
+              height: number;
+              size: ('Large' | 'Preview');
+            })
+            | null;
+          video?: ({ url: string; width: number; height: number }) | null;
           site_name?: string | null;
           icon_url?: string | null;
           colour?: string | null;
@@ -1592,7 +1682,7 @@ export type Routes = {
           url: string;
           width: number;
           height: number;
-          size: 'Large' | 'Preview';
+          size: ('Large' | 'Preview');
         }
         | { type: 'Video'; url: string; width: number; height: number }
         | {
@@ -1601,46 +1691,68 @@ export type Routes = {
           url?: string | null;
           title?: string | null;
           description?: string | null;
-          media?: {
-            _id: string;
-            tag: string;
-            filename: string;
-            metadata:
-              | { type: 'File' }
-              | { type: 'Text' }
-              | { type: 'Image'; width: number; height: number }
-              | { type: 'Video'; width: number; height: number }
-              | { type: 'Audio' };
-            content_type: string;
-            size: number;
-            deleted?: boolean | null;
-            reported?: boolean | null;
-            message_id?: string | null;
-            user_id?: string | null;
-            server_id?: string | null;
-            object_id?: string | null;
-          };
+          media?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
           colour?: string | null;
         }
-        | { type: 'None' }[]
-        | null;
-      mentions?: string[] | null;
-      replies?: string[] | null;
-      masquerade?: { name?: string | null; avatar?: string | null };
-    }[];
-    users: {
+        | { type: 'None' }
+      )[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
+    masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
+  }[] | {
+    messages: {
       _id: string;
-      username: string;
-      avatar?: {
+      nonce?: string | null;
+      channel: string;
+      author: string;
+      content?: string | null;
+      system?:
+        | ((
+          | { type: 'text'; content: string }
+          | { type: 'user_added'; id: string; by: string }
+          | { type: 'user_remove'; id: string; by: string }
+          | { type: 'user_joined'; id: string }
+          | { type: 'user_left'; id: string }
+          | { type: 'user_kicked'; id: string }
+          | { type: 'user_banned'; id: string }
+          | { type: 'channel_renamed'; name: string; by: string }
+          | { type: 'channel_description_changed'; by: string }
+          | { type: 'channel_icon_changed'; by: string }
+        ))
+        | null;
+      attachments?: {
         _id: string;
         tag: string;
         filename: string;
-        metadata:
+        metadata: ((
           | { type: 'File' }
           | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
+          | { type: 'Audio' }
+        ));
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -1649,7 +1761,119 @@ export type Routes = {
         user_id?: string | null;
         server_id?: string | null;
         object_id?: string | null;
-      };
+      }[] | null;
+      edited?: (string) | null;
+      embeds?:
+        | (
+          | {
+            type: 'Website';
+            url?: string | null;
+            original_url?: string | null;
+            special?:
+              | ((
+                | { type: 'None' }
+                | { type: 'GIF' }
+                | { type: 'YouTube'; id: string; timestamp?: string | null }
+                | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+                | {
+                  type: 'Twitch';
+                  content_type: 'Channel' | 'Video' | 'Clip';
+                  id: string;
+                }
+                | { type: 'Spotify'; content_type: string; id: string }
+                | { type: 'Soundcloud' }
+                | {
+                  type: 'Bandcamp';
+                  content_type: 'Album' | 'Track';
+                  id: string;
+                }
+              ))
+              | null;
+            title?: string | null;
+            description?: string | null;
+            image?:
+              | ({
+                url: string;
+                width: number;
+                height: number;
+                size: ('Large' | 'Preview');
+              })
+              | null;
+            video?: ({ url: string; width: number; height: number }) | null;
+            site_name?: string | null;
+            icon_url?: string | null;
+            colour?: string | null;
+          }
+          | {
+            type: 'Image';
+            url: string;
+            width: number;
+            height: number;
+            size: ('Large' | 'Preview');
+          }
+          | { type: 'Video'; url: string; width: number; height: number }
+          | {
+            type: 'Text';
+            icon_url?: string | null;
+            url?: string | null;
+            title?: string | null;
+            description?: string | null;
+            media?:
+              | ({
+                _id: string;
+                tag: string;
+                filename: string;
+                metadata: ((
+                  | { type: 'File' }
+                  | { type: 'Text' }
+                  | { type: 'Image'; width: number; height: number }
+                  | { type: 'Video'; width: number; height: number }
+                  | { type: 'Audio' }
+                ));
+                content_type: string;
+                size: number;
+                deleted?: boolean | null;
+                reported?: boolean | null;
+                message_id?: string | null;
+                user_id?: string | null;
+                server_id?: string | null;
+                object_id?: string | null;
+              })
+              | null;
+            colour?: string | null;
+          }
+          | { type: 'None' }
+        )[]
+        | null;
+      mentions?: string[] | null;
+      replies?: string[] | null;
+      masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
+    }[];
+    users: {
+      _id: string;
+      username: string;
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       relations?: {
         _id: string;
         status:
@@ -1662,22 +1886,70 @@ export type Routes = {
           | 'BlockedOther';
       }[] | null;
       badges?: number | null;
-      status?: {
-        text?: string | null;
-        presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-      };
-      profile?: {
-        content?: string | null;
-        background?: {
+      status?:
+        | ({
+          text?: string | null;
+          presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+        })
+        | null;
+      profile?:
+        | ({
+          content?: string | null;
+          background?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+        })
+        | null;
+      flags?: number | null;
+      privileged?: boolean;
+      bot?: ({ owner: string }) | null;
+      relationship?:
+        | (
+          | 'None'
+          | 'User'
+          | 'Friend'
+          | 'Outgoing'
+          | 'Incoming'
+          | 'Blocked'
+          | 'BlockedOther'
+        )
+        | null;
+      online?: boolean | null;
+    }[];
+    members?: {
+      _id: ({ server: string; user: string });
+      nickname?: string | null;
+      avatar?:
+        | ({
           _id: string;
           tag: string;
           filename: string;
-          metadata:
+          metadata: ((
             | { type: 'File' }
             | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
+            | { type: 'Audio' }
+          ));
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -1686,46 +1958,11 @@ export type Routes = {
           user_id?: string | null;
           server_id?: string | null;
           object_id?: string | null;
-        };
-      };
-      flags?: number | null;
-      privileged?: boolean;
-      bot?: { owner: string };
-      relationship?:
-        | 'None'
-        | 'User'
-        | 'Friend'
-        | 'Outgoing'
-        | 'Incoming'
-        | 'Blocked'
-        | 'BlockedOther';
-      online?: boolean | null;
-    }[];
-    members?: {
-      _id: { server: string; user: string };
-      nickname?: string | null;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+        })
+        | null;
       roles?: string[] | null;
     }[] | null;
-  };
+  });
 } | {
   path: `/channels/${string}/messages`;
   parts: 3;
@@ -1737,26 +1974,30 @@ export type Routes = {
     author: string;
     content?: string | null;
     system?:
-      | { type: 'text'; content: string }
-      | { type: 'user_added'; id: string; by: string }
-      | { type: 'user_remove'; id: string; by: string }
-      | { type: 'user_joined'; id: string }
-      | { type: 'user_left'; id: string }
-      | { type: 'user_kicked'; id: string }
-      | { type: 'user_banned'; id: string }
-      | { type: 'channel_renamed'; name: string; by: string }
-      | { type: 'channel_description_changed'; by: string }
-      | { type: 'channel_icon_changed'; by: string };
+      | ((
+        | { type: 'text'; content: string }
+        | { type: 'user_added'; id: string; by: string }
+        | { type: 'user_remove'; id: string; by: string }
+        | { type: 'user_joined'; id: string }
+        | { type: 'user_left'; id: string }
+        | { type: 'user_kicked'; id: string }
+        | { type: 'user_banned'; id: string }
+        | { type: 'channel_renamed'; name: string; by: string }
+        | { type: 'channel_description_changed'; by: string }
+        | { type: 'channel_icon_changed'; by: string }
+      ))
+      | null;
     attachments?: {
       _id: string;
       tag: string;
       filename: string;
-      metadata:
+      metadata: ((
         | { type: 'File' }
         | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
+        | { type: 'Audio' }
+      ));
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -1766,199 +2007,105 @@ export type Routes = {
       server_id?: string | null;
       object_id?: string | null;
     }[] | null;
-    edited?: string;
+    edited?: (string) | null;
     embeds?:
-      | {
-        type: 'Website';
-        url?: string | null;
-        original_url?: string | null;
-        special?:
-          | { type: 'None' }
-          | { type: 'GIF' }
-          | { type: 'YouTube'; id: string; timestamp?: string | null }
-          | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-          | {
-            type: 'Twitch';
-            content_type: 'Channel' | 'Video' | 'Clip';
-            id: string;
-          }
-          | { type: 'Spotify'; content_type: string; id: string }
-          | { type: 'Soundcloud' }
-          | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string | null;
-        description?: string | null;
-        image?: {
+      | (
+        | {
+          type: 'Website';
+          url?: string | null;
+          original_url?: string | null;
+          special?:
+            | ((
+              | { type: 'None' }
+              | { type: 'GIF' }
+              | { type: 'YouTube'; id: string; timestamp?: string | null }
+              | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+              | {
+                type: 'Twitch';
+                content_type: 'Channel' | 'Video' | 'Clip';
+                id: string;
+              }
+              | { type: 'Spotify'; content_type: string; id: string }
+              | { type: 'Soundcloud' }
+              | {
+                type: 'Bandcamp';
+                content_type: 'Album' | 'Track';
+                id: string;
+              }
+            ))
+            | null;
+          title?: string | null;
+          description?: string | null;
+          image?:
+            | ({
+              url: string;
+              width: number;
+              height: number;
+              size: ('Large' | 'Preview');
+            })
+            | null;
+          video?: ({ url: string; width: number; height: number }) | null;
+          site_name?: string | null;
+          icon_url?: string | null;
+          colour?: string | null;
+        }
+        | {
+          type: 'Image';
           url: string;
           width: number;
           height: number;
-          size: 'Large' | 'Preview';
-        };
-        video?: { url: string; width: number; height: number };
-        site_name?: string | null;
-        icon_url?: string | null;
-        colour?: string | null;
-      }
-      | {
-        type: 'Image';
-        url: string;
-        width: number;
-        height: number;
-        size: 'Large' | 'Preview';
-      }
-      | { type: 'Video'; url: string; width: number; height: number }
-      | {
-        type: 'Text';
-        icon_url?: string | null;
-        url?: string | null;
-        title?: string | null;
-        description?: string | null;
-        media?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-        colour?: string | null;
-      }
-      | { type: 'None' }[]
+          size: ('Large' | 'Preview');
+        }
+        | { type: 'Video'; url: string; width: number; height: number }
+        | {
+          type: 'Text';
+          icon_url?: string | null;
+          url?: string | null;
+          title?: string | null;
+          description?: string | null;
+          media?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+          colour?: string | null;
+        }
+        | { type: 'None' }
+      )[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
-    masquerade?: { name?: string | null; avatar?: string | null };
+    masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
   };
 } | {
   path: `/channels/${string}/search`;
   parts: 3;
   method: 'POST';
-  response: {
+  response: ({
     _id: string;
     nonce?: string | null;
     channel: string;
     author: string;
     content?: string | null;
     system?:
-      | { type: 'text'; content: string }
-      | { type: 'user_added'; id: string; by: string }
-      | { type: 'user_remove'; id: string; by: string }
-      | { type: 'user_joined'; id: string }
-      | { type: 'user_left'; id: string }
-      | { type: 'user_kicked'; id: string }
-      | { type: 'user_banned'; id: string }
-      | { type: 'channel_renamed'; name: string; by: string }
-      | { type: 'channel_description_changed'; by: string }
-      | { type: 'channel_icon_changed'; by: string };
-    attachments?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    }[] | null;
-    edited?: string;
-    embeds?:
-      | {
-        type: 'Website';
-        url?: string | null;
-        original_url?: string | null;
-        special?:
-          | { type: 'None' }
-          | { type: 'GIF' }
-          | { type: 'YouTube'; id: string; timestamp?: string | null }
-          | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-          | {
-            type: 'Twitch';
-            content_type: 'Channel' | 'Video' | 'Clip';
-            id: string;
-          }
-          | { type: 'Spotify'; content_type: string; id: string }
-          | { type: 'Soundcloud' }
-          | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string | null;
-        description?: string | null;
-        image?: {
-          url: string;
-          width: number;
-          height: number;
-          size: 'Large' | 'Preview';
-        };
-        video?: { url: string; width: number; height: number };
-        site_name?: string | null;
-        icon_url?: string | null;
-        colour?: string | null;
-      }
-      | {
-        type: 'Image';
-        url: string;
-        width: number;
-        height: number;
-        size: 'Large' | 'Preview';
-      }
-      | { type: 'Video'; url: string; width: number; height: number }
-      | {
-        type: 'Text';
-        icon_url?: string | null;
-        url?: string | null;
-        title?: string | null;
-        description?: string | null;
-        media?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-        colour?: string | null;
-      }
-      | { type: 'None' }[]
-      | null;
-    mentions?: string[] | null;
-    replies?: string[] | null;
-    masquerade?: { name?: string | null; avatar?: string | null };
-  }[] | {
-    messages: {
-      _id: string;
-      nonce?: string | null;
-      channel: string;
-      author: string;
-      content?: string | null;
-      system?:
+      | ((
         | { type: 'text'; content: string }
         | { type: 'user_added'; id: string; by: string }
         | { type: 'user_remove'; id: string; by: string }
@@ -1968,54 +2115,67 @@ export type Routes = {
         | { type: 'user_banned'; id: string }
         | { type: 'channel_renamed'; name: string; by: string }
         | { type: 'channel_description_changed'; by: string }
-        | { type: 'channel_icon_changed'; by: string };
-      attachments?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      }[] | null;
-      edited?: string;
-      embeds?:
+        | { type: 'channel_icon_changed'; by: string }
+      ))
+      | null;
+    attachments?: {
+      _id: string;
+      tag: string;
+      filename: string;
+      metadata: ((
+        | { type: 'File' }
+        | { type: 'Text' }
+        | { type: 'Image'; width: number; height: number }
+        | { type: 'Video'; width: number; height: number }
+        | { type: 'Audio' }
+      ));
+      content_type: string;
+      size: number;
+      deleted?: boolean | null;
+      reported?: boolean | null;
+      message_id?: string | null;
+      user_id?: string | null;
+      server_id?: string | null;
+      object_id?: string | null;
+    }[] | null;
+    edited?: (string) | null;
+    embeds?:
+      | (
         | {
           type: 'Website';
           url?: string | null;
           original_url?: string | null;
           special?:
-            | { type: 'None' }
-            | { type: 'GIF' }
-            | { type: 'YouTube'; id: string; timestamp?: string | null }
-            | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-            | {
-              type: 'Twitch';
-              content_type: 'Channel' | 'Video' | 'Clip';
-              id: string;
-            }
-            | { type: 'Spotify'; content_type: string; id: string }
-            | { type: 'Soundcloud' }
-            | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
+            | ((
+              | { type: 'None' }
+              | { type: 'GIF' }
+              | { type: 'YouTube'; id: string; timestamp?: string | null }
+              | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+              | {
+                type: 'Twitch';
+                content_type: 'Channel' | 'Video' | 'Clip';
+                id: string;
+              }
+              | { type: 'Spotify'; content_type: string; id: string }
+              | { type: 'Soundcloud' }
+              | {
+                type: 'Bandcamp';
+                content_type: 'Album' | 'Track';
+                id: string;
+              }
+            ))
+            | null;
           title?: string | null;
           description?: string | null;
-          image?: {
-            url: string;
-            width: number;
-            height: number;
-            size: 'Large' | 'Preview';
-          };
-          video?: { url: string; width: number; height: number };
+          image?:
+            | ({
+              url: string;
+              width: number;
+              height: number;
+              size: ('Large' | 'Preview');
+            })
+            | null;
+          video?: ({ url: string; width: number; height: number }) | null;
           site_name?: string | null;
           icon_url?: string | null;
           colour?: string | null;
@@ -2025,7 +2185,7 @@ export type Routes = {
           url: string;
           width: number;
           height: number;
-          size: 'Large' | 'Preview';
+          size: ('Large' | 'Preview');
         }
         | { type: 'Video'; url: string; width: number; height: number }
         | {
@@ -2034,46 +2194,68 @@ export type Routes = {
           url?: string | null;
           title?: string | null;
           description?: string | null;
-          media?: {
-            _id: string;
-            tag: string;
-            filename: string;
-            metadata:
-              | { type: 'File' }
-              | { type: 'Text' }
-              | { type: 'Image'; width: number; height: number }
-              | { type: 'Video'; width: number; height: number }
-              | { type: 'Audio' };
-            content_type: string;
-            size: number;
-            deleted?: boolean | null;
-            reported?: boolean | null;
-            message_id?: string | null;
-            user_id?: string | null;
-            server_id?: string | null;
-            object_id?: string | null;
-          };
+          media?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
           colour?: string | null;
         }
-        | { type: 'None' }[]
-        | null;
-      mentions?: string[] | null;
-      replies?: string[] | null;
-      masquerade?: { name?: string | null; avatar?: string | null };
-    }[];
-    users: {
+        | { type: 'None' }
+      )[]
+      | null;
+    mentions?: string[] | null;
+    replies?: string[] | null;
+    masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
+  }[] | {
+    messages: {
       _id: string;
-      username: string;
-      avatar?: {
+      nonce?: string | null;
+      channel: string;
+      author: string;
+      content?: string | null;
+      system?:
+        | ((
+          | { type: 'text'; content: string }
+          | { type: 'user_added'; id: string; by: string }
+          | { type: 'user_remove'; id: string; by: string }
+          | { type: 'user_joined'; id: string }
+          | { type: 'user_left'; id: string }
+          | { type: 'user_kicked'; id: string }
+          | { type: 'user_banned'; id: string }
+          | { type: 'channel_renamed'; name: string; by: string }
+          | { type: 'channel_description_changed'; by: string }
+          | { type: 'channel_icon_changed'; by: string }
+        ))
+        | null;
+      attachments?: {
         _id: string;
         tag: string;
         filename: string;
-        metadata:
+        metadata: ((
           | { type: 'File' }
           | { type: 'Text' }
           | { type: 'Image'; width: number; height: number }
           | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
+          | { type: 'Audio' }
+        ));
         content_type: string;
         size: number;
         deleted?: boolean | null;
@@ -2082,7 +2264,119 @@ export type Routes = {
         user_id?: string | null;
         server_id?: string | null;
         object_id?: string | null;
-      };
+      }[] | null;
+      edited?: (string) | null;
+      embeds?:
+        | (
+          | {
+            type: 'Website';
+            url?: string | null;
+            original_url?: string | null;
+            special?:
+              | ((
+                | { type: 'None' }
+                | { type: 'GIF' }
+                | { type: 'YouTube'; id: string; timestamp?: string | null }
+                | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+                | {
+                  type: 'Twitch';
+                  content_type: 'Channel' | 'Video' | 'Clip';
+                  id: string;
+                }
+                | { type: 'Spotify'; content_type: string; id: string }
+                | { type: 'Soundcloud' }
+                | {
+                  type: 'Bandcamp';
+                  content_type: 'Album' | 'Track';
+                  id: string;
+                }
+              ))
+              | null;
+            title?: string | null;
+            description?: string | null;
+            image?:
+              | ({
+                url: string;
+                width: number;
+                height: number;
+                size: ('Large' | 'Preview');
+              })
+              | null;
+            video?: ({ url: string; width: number; height: number }) | null;
+            site_name?: string | null;
+            icon_url?: string | null;
+            colour?: string | null;
+          }
+          | {
+            type: 'Image';
+            url: string;
+            width: number;
+            height: number;
+            size: ('Large' | 'Preview');
+          }
+          | { type: 'Video'; url: string; width: number; height: number }
+          | {
+            type: 'Text';
+            icon_url?: string | null;
+            url?: string | null;
+            title?: string | null;
+            description?: string | null;
+            media?:
+              | ({
+                _id: string;
+                tag: string;
+                filename: string;
+                metadata: ((
+                  | { type: 'File' }
+                  | { type: 'Text' }
+                  | { type: 'Image'; width: number; height: number }
+                  | { type: 'Video'; width: number; height: number }
+                  | { type: 'Audio' }
+                ));
+                content_type: string;
+                size: number;
+                deleted?: boolean | null;
+                reported?: boolean | null;
+                message_id?: string | null;
+                user_id?: string | null;
+                server_id?: string | null;
+                object_id?: string | null;
+              })
+              | null;
+            colour?: string | null;
+          }
+          | { type: 'None' }
+        )[]
+        | null;
+      mentions?: string[] | null;
+      replies?: string[] | null;
+      masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
+    }[];
+    users: {
+      _id: string;
+      username: string;
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       relations?: {
         _id: string;
         status:
@@ -2095,22 +2389,70 @@ export type Routes = {
           | 'BlockedOther';
       }[] | null;
       badges?: number | null;
-      status?: {
-        text?: string | null;
-        presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-      };
-      profile?: {
-        content?: string | null;
-        background?: {
+      status?:
+        | ({
+          text?: string | null;
+          presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+        })
+        | null;
+      profile?:
+        | ({
+          content?: string | null;
+          background?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+        })
+        | null;
+      flags?: number | null;
+      privileged?: boolean;
+      bot?: ({ owner: string }) | null;
+      relationship?:
+        | (
+          | 'None'
+          | 'User'
+          | 'Friend'
+          | 'Outgoing'
+          | 'Incoming'
+          | 'Blocked'
+          | 'BlockedOther'
+        )
+        | null;
+      online?: boolean | null;
+    }[];
+    members?: {
+      _id: ({ server: string; user: string });
+      nickname?: string | null;
+      avatar?:
+        | ({
           _id: string;
           tag: string;
           filename: string;
-          metadata:
+          metadata: ((
             | { type: 'File' }
             | { type: 'Text' }
             | { type: 'Image'; width: number; height: number }
             | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
+            | { type: 'Audio' }
+          ));
           content_type: string;
           size: number;
           deleted?: boolean | null;
@@ -2119,46 +2461,11 @@ export type Routes = {
           user_id?: string | null;
           server_id?: string | null;
           object_id?: string | null;
-        };
-      };
-      flags?: number | null;
-      privileged?: boolean;
-      bot?: { owner: string };
-      relationship?:
-        | 'None'
-        | 'User'
-        | 'Friend'
-        | 'Outgoing'
-        | 'Incoming'
-        | 'Blocked'
-        | 'BlockedOther';
-      online?: boolean | null;
-    }[];
-    members?: {
-      _id: { server: string; user: string };
-      nickname?: string | null;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+        })
+        | null;
       roles?: string[] | null;
     }[] | null;
-  };
+  });
 } | {
   path: `/channels/${string}/messages/stale`;
   parts: 4;
@@ -2175,26 +2482,30 @@ export type Routes = {
     author: string;
     content?: string | null;
     system?:
-      | { type: 'text'; content: string }
-      | { type: 'user_added'; id: string; by: string }
-      | { type: 'user_remove'; id: string; by: string }
-      | { type: 'user_joined'; id: string }
-      | { type: 'user_left'; id: string }
-      | { type: 'user_kicked'; id: string }
-      | { type: 'user_banned'; id: string }
-      | { type: 'channel_renamed'; name: string; by: string }
-      | { type: 'channel_description_changed'; by: string }
-      | { type: 'channel_icon_changed'; by: string };
+      | ((
+        | { type: 'text'; content: string }
+        | { type: 'user_added'; id: string; by: string }
+        | { type: 'user_remove'; id: string; by: string }
+        | { type: 'user_joined'; id: string }
+        | { type: 'user_left'; id: string }
+        | { type: 'user_kicked'; id: string }
+        | { type: 'user_banned'; id: string }
+        | { type: 'channel_renamed'; name: string; by: string }
+        | { type: 'channel_description_changed'; by: string }
+        | { type: 'channel_icon_changed'; by: string }
+      ))
+      | null;
     attachments?: {
       _id: string;
       tag: string;
       filename: string;
-      metadata:
+      metadata: ((
         | { type: 'File' }
         | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
+        | { type: 'Audio' }
+      ));
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2204,78 +2515,92 @@ export type Routes = {
       server_id?: string | null;
       object_id?: string | null;
     }[] | null;
-    edited?: string;
+    edited?: (string) | null;
     embeds?:
-      | {
-        type: 'Website';
-        url?: string | null;
-        original_url?: string | null;
-        special?:
-          | { type: 'None' }
-          | { type: 'GIF' }
-          | { type: 'YouTube'; id: string; timestamp?: string | null }
-          | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-          | {
-            type: 'Twitch';
-            content_type: 'Channel' | 'Video' | 'Clip';
-            id: string;
-          }
-          | { type: 'Spotify'; content_type: string; id: string }
-          | { type: 'Soundcloud' }
-          | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string | null;
-        description?: string | null;
-        image?: {
+      | (
+        | {
+          type: 'Website';
+          url?: string | null;
+          original_url?: string | null;
+          special?:
+            | ((
+              | { type: 'None' }
+              | { type: 'GIF' }
+              | { type: 'YouTube'; id: string; timestamp?: string | null }
+              | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+              | {
+                type: 'Twitch';
+                content_type: 'Channel' | 'Video' | 'Clip';
+                id: string;
+              }
+              | { type: 'Spotify'; content_type: string; id: string }
+              | { type: 'Soundcloud' }
+              | {
+                type: 'Bandcamp';
+                content_type: 'Album' | 'Track';
+                id: string;
+              }
+            ))
+            | null;
+          title?: string | null;
+          description?: string | null;
+          image?:
+            | ({
+              url: string;
+              width: number;
+              height: number;
+              size: ('Large' | 'Preview');
+            })
+            | null;
+          video?: ({ url: string; width: number; height: number }) | null;
+          site_name?: string | null;
+          icon_url?: string | null;
+          colour?: string | null;
+        }
+        | {
+          type: 'Image';
           url: string;
           width: number;
           height: number;
-          size: 'Large' | 'Preview';
-        };
-        video?: { url: string; width: number; height: number };
-        site_name?: string | null;
-        icon_url?: string | null;
-        colour?: string | null;
-      }
-      | {
-        type: 'Image';
-        url: string;
-        width: number;
-        height: number;
-        size: 'Large' | 'Preview';
-      }
-      | { type: 'Video'; url: string; width: number; height: number }
-      | {
-        type: 'Text';
-        icon_url?: string | null;
-        url?: string | null;
-        title?: string | null;
-        description?: string | null;
-        media?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-        colour?: string | null;
-      }
-      | { type: 'None' }[]
+          size: ('Large' | 'Preview');
+        }
+        | { type: 'Video'; url: string; width: number; height: number }
+        | {
+          type: 'Text';
+          icon_url?: string | null;
+          url?: string | null;
+          title?: string | null;
+          description?: string | null;
+          media?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+          colour?: string | null;
+        }
+        | { type: 'None' }
+      )[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
-    masquerade?: { name?: string | null; avatar?: string | null };
+    masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
   };
 } | {
   path: `/channels/${string}/messages/${string}`;
@@ -2293,26 +2618,30 @@ export type Routes = {
     author: string;
     content?: string | null;
     system?:
-      | { type: 'text'; content: string }
-      | { type: 'user_added'; id: string; by: string }
-      | { type: 'user_remove'; id: string; by: string }
-      | { type: 'user_joined'; id: string }
-      | { type: 'user_left'; id: string }
-      | { type: 'user_kicked'; id: string }
-      | { type: 'user_banned'; id: string }
-      | { type: 'channel_renamed'; name: string; by: string }
-      | { type: 'channel_description_changed'; by: string }
-      | { type: 'channel_icon_changed'; by: string };
+      | ((
+        | { type: 'text'; content: string }
+        | { type: 'user_added'; id: string; by: string }
+        | { type: 'user_remove'; id: string; by: string }
+        | { type: 'user_joined'; id: string }
+        | { type: 'user_left'; id: string }
+        | { type: 'user_kicked'; id: string }
+        | { type: 'user_banned'; id: string }
+        | { type: 'channel_renamed'; name: string; by: string }
+        | { type: 'channel_description_changed'; by: string }
+        | { type: 'channel_icon_changed'; by: string }
+      ))
+      | null;
     attachments?: {
       _id: string;
       tag: string;
       filename: string;
-      metadata:
+      metadata: ((
         | { type: 'File' }
         | { type: 'Text' }
         | { type: 'Image'; width: number; height: number }
         | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
+        | { type: 'Audio' }
+      ));
       content_type: string;
       size: number;
       deleted?: boolean | null;
@@ -2322,78 +2651,92 @@ export type Routes = {
       server_id?: string | null;
       object_id?: string | null;
     }[] | null;
-    edited?: string;
+    edited?: (string) | null;
     embeds?:
-      | {
-        type: 'Website';
-        url?: string | null;
-        original_url?: string | null;
-        special?:
-          | { type: 'None' }
-          | { type: 'GIF' }
-          | { type: 'YouTube'; id: string; timestamp?: string | null }
-          | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
-          | {
-            type: 'Twitch';
-            content_type: 'Channel' | 'Video' | 'Clip';
-            id: string;
-          }
-          | { type: 'Spotify'; content_type: string; id: string }
-          | { type: 'Soundcloud' }
-          | { type: 'Bandcamp'; content_type: 'Album' | 'Track'; id: string };
-        title?: string | null;
-        description?: string | null;
-        image?: {
+      | (
+        | {
+          type: 'Website';
+          url?: string | null;
+          original_url?: string | null;
+          special?:
+            | ((
+              | { type: 'None' }
+              | { type: 'GIF' }
+              | { type: 'YouTube'; id: string; timestamp?: string | null }
+              | { type: 'Lightspeed'; content_type: 'Channel'; id: string }
+              | {
+                type: 'Twitch';
+                content_type: 'Channel' | 'Video' | 'Clip';
+                id: string;
+              }
+              | { type: 'Spotify'; content_type: string; id: string }
+              | { type: 'Soundcloud' }
+              | {
+                type: 'Bandcamp';
+                content_type: 'Album' | 'Track';
+                id: string;
+              }
+            ))
+            | null;
+          title?: string | null;
+          description?: string | null;
+          image?:
+            | ({
+              url: string;
+              width: number;
+              height: number;
+              size: ('Large' | 'Preview');
+            })
+            | null;
+          video?: ({ url: string; width: number; height: number }) | null;
+          site_name?: string | null;
+          icon_url?: string | null;
+          colour?: string | null;
+        }
+        | {
+          type: 'Image';
           url: string;
           width: number;
           height: number;
-          size: 'Large' | 'Preview';
-        };
-        video?: { url: string; width: number; height: number };
-        site_name?: string | null;
-        icon_url?: string | null;
-        colour?: string | null;
-      }
-      | {
-        type: 'Image';
-        url: string;
-        width: number;
-        height: number;
-        size: 'Large' | 'Preview';
-      }
-      | { type: 'Video'; url: string; width: number; height: number }
-      | {
-        type: 'Text';
-        icon_url?: string | null;
-        url?: string | null;
-        title?: string | null;
-        description?: string | null;
-        media?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-        colour?: string | null;
-      }
-      | { type: 'None' }[]
+          size: ('Large' | 'Preview');
+        }
+        | { type: 'Video'; url: string; width: number; height: number }
+        | {
+          type: 'Text';
+          icon_url?: string | null;
+          url?: string | null;
+          title?: string | null;
+          description?: string | null;
+          media?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+          colour?: string | null;
+        }
+        | { type: 'None' }
+      )[]
       | null;
     mentions?: string[] | null;
     replies?: string[] | null;
-    masquerade?: { name?: string | null; avatar?: string | null };
+    masquerade?: ({ name?: string | null; avatar?: string | null }) | null;
   };
 } | {
   path: `/channels/${string}/messages/bulk`;
@@ -2404,7 +2747,7 @@ export type Routes = {
   path: `/channels/create`;
   parts: 2;
   method: 'POST';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -2417,25 +2760,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -2445,27 +2791,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -2474,29 +2823,32 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/channels/${string}/recipients/${string}`;
   parts: 4;
@@ -2516,7 +2868,7 @@ export type Routes = {
   path: `/channels/${string}/permissions/${string}`;
   parts: 4;
   method: 'PUT';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -2529,25 +2881,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -2557,27 +2912,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -2586,34 +2944,37 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/channels/${string}/permissions/default`;
   parts: 4;
   method: 'PUT';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -2626,25 +2987,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -2654,27 +3018,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -2683,101 +3050,112 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/servers/create`;
   parts: 2;
   method: 'POST';
   response: {
-    server: {
+    server: ({
       _id: string;
       owner: string;
       name: string;
       description?: string | null;
       channels: string[];
       categories?: { id: string; title: string; channels: string[] }[] | null;
-      system_messages?: {
-        user_joined?: string | null;
-        user_left?: string | null;
-        user_kicked?: string | null;
-        user_banned?: string | null;
-      };
+      system_messages?:
+        | ({
+          user_joined?: string | null;
+          user_left?: string | null;
+          user_kicked?: string | null;
+          user_banned?: string | null;
+        })
+        | null;
       roles?: {
         [key: string]: {
           name: string;
-          permissions: { a: number; d: number };
+          permissions: ({ a: number; d: number });
           colour?: string | null;
           hoist?: boolean;
           rank?: number;
         };
       };
       default_permissions: number;
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-      banner?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
+      banner?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       flags?: number | null;
       nsfw?: boolean;
       analytics?: boolean;
       discoverable?: boolean;
-    };
-    channels: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+    });
+    channels: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
       channel_type: 'DirectMessage';
       _id: string;
       active: boolean;
@@ -2790,25 +3168,28 @@ export type Routes = {
       owner: string;
       description?: string | null;
       recipients: string[];
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       last_message_id?: string | null;
       permissions?: number | null;
       nsfw?: boolean;
@@ -2818,27 +3199,30 @@ export type Routes = {
       server: string;
       name: string;
       description?: string | null;
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       last_message_id?: string | null;
-      default_permissions?: { a: number; d: number };
+      default_permissions?: ({ a: number; d: number }) | null;
       role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
     } | {
@@ -2847,29 +3231,32 @@ export type Routes = {
       server: string;
       name: string;
       description?: string | null;
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-      default_permissions?: { a: number; d: number };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
+      default_permissions?: ({ a: number; d: number }) | null;
       role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
-    }[];
+    })[];
   };
 } | {
   path: `/servers/${string}`;
@@ -2882,60 +3269,68 @@ export type Routes = {
     description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[] | null;
-    system_messages?: {
-      user_joined?: string | null;
-      user_left?: string | null;
-      user_kicked?: string | null;
-      user_banned?: string | null;
-    };
+    system_messages?:
+      | ({
+        user_joined?: string | null;
+        user_left?: string | null;
+        user_kicked?: string | null;
+        user_banned?: string | null;
+      })
+      | null;
     roles?: {
       [key: string]: {
         name: string;
-        permissions: { a: number; d: number };
+        permissions: ({ a: number; d: number });
         colour?: string | null;
         hoist?: boolean;
         rank?: number;
       };
     };
     default_permissions: number;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    banner?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    banner?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
@@ -2957,60 +3352,68 @@ export type Routes = {
     description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[] | null;
-    system_messages?: {
-      user_joined?: string | null;
-      user_left?: string | null;
-      user_kicked?: string | null;
-      user_banned?: string | null;
-    };
+    system_messages?:
+      | ({
+        user_joined?: string | null;
+        user_left?: string | null;
+        user_kicked?: string | null;
+        user_banned?: string | null;
+      })
+      | null;
     roles?: {
       [key: string]: {
         name: string;
-        permissions: { a: number; d: number };
+        permissions: ({ a: number; d: number });
         colour?: string | null;
         hoist?: boolean;
         rank?: number;
       };
     };
     default_permissions: number;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    banner?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    banner?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
@@ -3025,7 +3428,7 @@ export type Routes = {
   path: `/servers/${string}/channels`;
   parts: 3;
   method: 'POST';
-  response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+  response: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
     _id: string;
     active: boolean;
@@ -3038,25 +3441,28 @@ export type Routes = {
     owner: string;
     description?: string | null;
     recipients: string[];
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
     permissions?: number | null;
     nsfw?: boolean;
@@ -3066,27 +3472,30 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     last_message_id?: string | null;
-    default_permissions?: { a: number; d: number };
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
   } | {
@@ -3095,80 +3504,89 @@ export type Routes = {
     server: string;
     name: string;
     description?: string | null;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    default_permissions?: { a: number; d: number };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    default_permissions?: ({ a: number; d: number }) | null;
     role_permissions?: { [key: string]: { a: number; d: number } };
     nsfw?: boolean;
-  };
+  });
 } | {
   path: `/servers/${string}/members`;
   parts: 3;
   method: 'GET';
   response: {
     members: {
-      _id: { server: string; user: string };
+      _id: ({ server: string; user: string });
       nickname?: string | null;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       roles?: string[] | null;
     }[];
     users: {
       _id: string;
       username: string;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       relations?: {
         _id: string;
         status:
@@ -3181,43 +3599,53 @@ export type Routes = {
           | 'BlockedOther';
       }[] | null;
       badges?: number | null;
-      status?: {
-        text?: string | null;
-        presence?: 'Online' | 'Idle' | 'Busy' | 'Invisible';
-      };
-      profile?: {
-        content?: string | null;
-        background?: {
-          _id: string;
-          tag: string;
-          filename: string;
-          metadata:
-            | { type: 'File' }
-            | { type: 'Text' }
-            | { type: 'Image'; width: number; height: number }
-            | { type: 'Video'; width: number; height: number }
-            | { type: 'Audio' };
-          content_type: string;
-          size: number;
-          deleted?: boolean | null;
-          reported?: boolean | null;
-          message_id?: string | null;
-          user_id?: string | null;
-          server_id?: string | null;
-          object_id?: string | null;
-        };
-      };
+      status?:
+        | ({
+          text?: string | null;
+          presence?: ('Online' | 'Idle' | 'Busy' | 'Invisible') | null;
+        })
+        | null;
+      profile?:
+        | ({
+          content?: string | null;
+          background?:
+            | ({
+              _id: string;
+              tag: string;
+              filename: string;
+              metadata: ((
+                | { type: 'File' }
+                | { type: 'Text' }
+                | { type: 'Image'; width: number; height: number }
+                | { type: 'Video'; width: number; height: number }
+                | { type: 'Audio' }
+              ));
+              content_type: string;
+              size: number;
+              deleted?: boolean | null;
+              reported?: boolean | null;
+              message_id?: string | null;
+              user_id?: string | null;
+              server_id?: string | null;
+              object_id?: string | null;
+            })
+            | null;
+        })
+        | null;
       flags?: number | null;
       privileged?: boolean;
-      bot?: { owner: string };
+      bot?: ({ owner: string }) | null;
       relationship?:
-        | 'None'
-        | 'User'
-        | 'Friend'
-        | 'Outgoing'
-        | 'Incoming'
-        | 'Blocked'
-        | 'BlockedOther';
+        | (
+          | 'None'
+          | 'User'
+          | 'Friend'
+          | 'Outgoing'
+          | 'Incoming'
+          | 'Blocked'
+          | 'BlockedOther'
+        )
+        | null;
       online?: boolean | null;
     }[];
   };
@@ -3226,27 +3654,30 @@ export type Routes = {
   parts: 4;
   method: 'GET';
   response: {
-    _id: { server: string; user: string };
+    _id: ({ server: string; user: string });
     nickname?: string | null;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     roles?: string[] | null;
   };
 } | {
@@ -3259,34 +3690,37 @@ export type Routes = {
   parts: 4;
   method: 'PATCH';
   response: {
-    _id: { server: string; user: string };
+    _id: ({ server: string; user: string });
     nickname?: string | null;
-    avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     roles?: string[] | null;
   };
 } | {
   path: `/servers/${string}/bans/${string}`;
   parts: 4;
   method: 'PUT';
-  response: { _id: { server: string; user: string }; reason?: string | null };
+  response: { _id: ({ server: string; user: string }); reason?: string | null };
 } | {
   path: `/servers/${string}/bans/${string}`;
   parts: 4;
@@ -3300,52 +3734,55 @@ export type Routes = {
     users: {
       _id: string;
       username: string;
-      avatar?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      avatar?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
     }[];
-    bans: { _id: { server: string; user: string }; reason?: string | null }[];
+    bans: { _id: ({ server: string; user: string }); reason?: string | null }[];
   };
 } | {
   path: `/servers/${string}/invites`;
   parts: 3;
   method: 'GET';
-  response: {
+  response: ({
     type: 'Server';
     _id: string;
     server: string;
     creator: string;
     channel: string;
-  } | { type: 'Group'; _id: string; creator: string; channel: string }[];
+  } | { type: 'Group'; _id: string; creator: string; channel: string })[];
 } | {
   path: `/servers/${string}/roles`;
   parts: 3;
   method: 'POST';
   response: {
     id: string;
-    role: {
+    role: ({
       name: string;
-      permissions: { a: number; d: number };
+      permissions: ({ a: number; d: number });
       colour?: string | null;
       hoist?: boolean;
       rank?: number;
-    };
+    });
   };
 } | {
   path: `/servers/${string}/roles/${string}`;
@@ -3358,7 +3795,7 @@ export type Routes = {
   method: 'PATCH';
   response: {
     name: string;
-    permissions: { a: number; d: number };
+    permissions: ({ a: number; d: number });
     colour?: string | null;
     hoist?: boolean;
     rank?: number;
@@ -3374,60 +3811,68 @@ export type Routes = {
     description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[] | null;
-    system_messages?: {
-      user_joined?: string | null;
-      user_left?: string | null;
-      user_kicked?: string | null;
-      user_banned?: string | null;
-    };
+    system_messages?:
+      | ({
+        user_joined?: string | null;
+        user_left?: string | null;
+        user_kicked?: string | null;
+        user_banned?: string | null;
+      })
+      | null;
     roles?: {
       [key: string]: {
         name: string;
-        permissions: { a: number; d: number };
+        permissions: ({ a: number; d: number });
         colour?: string | null;
         hoist?: boolean;
         rank?: number;
       };
     };
     default_permissions: number;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    banner?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    banner?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
@@ -3444,60 +3889,68 @@ export type Routes = {
     description?: string | null;
     channels: string[];
     categories?: { id: string; title: string; channels: string[] }[] | null;
-    system_messages?: {
-      user_joined?: string | null;
-      user_left?: string | null;
-      user_kicked?: string | null;
-      user_banned?: string | null;
-    };
+    system_messages?:
+      | ({
+        user_joined?: string | null;
+        user_left?: string | null;
+        user_kicked?: string | null;
+        user_banned?: string | null;
+      })
+      | null;
     roles?: {
       [key: string]: {
         name: string;
-        permissions: { a: number; d: number };
+        permissions: ({ a: number; d: number });
         colour?: string | null;
         hoist?: boolean;
         rank?: number;
       };
     };
     default_permissions: number;
-    icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    banner?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    banner?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     flags?: number | null;
     nsfw?: boolean;
     analytics?: boolean;
@@ -3507,72 +3960,81 @@ export type Routes = {
   path: `/invites/${string}`;
   parts: 2;
   method: 'GET';
-  response: {
+  response: ({
     type: 'Server';
     code: string;
     server_id: string;
     server_name: string;
-    server_icon?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-    server_banner?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    server_icon?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+    server_banner?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     channel_id: string;
     channel_name: string;
     channel_description?: string | null;
     user_name: string;
-    user_avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
+    user_avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
     member_count: number;
   } | {
     type: 'Group';
@@ -3581,33 +4043,36 @@ export type Routes = {
     channel_name: string;
     channel_description?: string | null;
     user_name: string;
-    user_avatar?: {
-      _id: string;
-      tag: string;
-      filename: string;
-      metadata:
-        | { type: 'File' }
-        | { type: 'Text' }
-        | { type: 'Image'; width: number; height: number }
-        | { type: 'Video'; width: number; height: number }
-        | { type: 'Audio' };
-      content_type: string;
-      size: number;
-      deleted?: boolean | null;
-      reported?: boolean | null;
-      message_id?: string | null;
-      user_id?: string | null;
-      server_id?: string | null;
-      object_id?: string | null;
-    };
-  };
+    user_avatar?:
+      | ({
+        _id: string;
+        tag: string;
+        filename: string;
+        metadata: ((
+          | { type: 'File' }
+          | { type: 'Text' }
+          | { type: 'Image'; width: number; height: number }
+          | { type: 'Video'; width: number; height: number }
+          | { type: 'Audio' }
+        ));
+        content_type: string;
+        size: number;
+        deleted?: boolean | null;
+        reported?: boolean | null;
+        message_id?: string | null;
+        user_id?: string | null;
+        server_id?: string | null;
+        object_id?: string | null;
+      })
+      | null;
+  });
 } | {
   path: `/invites/${string}`;
   parts: 2;
   method: 'POST';
-  response: {
+  response: ({
     type: 'Server';
-    channels: { channel_type: 'SavedMessages'; _id: string; user: string } | {
+    channels: ({ channel_type: 'SavedMessages'; _id: string; user: string } | {
       channel_type: 'DirectMessage';
       _id: string;
       active: boolean;
@@ -3620,25 +4085,28 @@ export type Routes = {
       owner: string;
       description?: string | null;
       recipients: string[];
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       last_message_id?: string | null;
       permissions?: number | null;
       nsfw?: boolean;
@@ -3648,27 +4116,30 @@ export type Routes = {
       server: string;
       name: string;
       description?: string | null;
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       last_message_id?: string | null;
-      default_permissions?: { a: number; d: number };
+      default_permissions?: ({ a: number; d: number }) | null;
       role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
     } | {
@@ -3677,96 +4148,109 @@ export type Routes = {
       server: string;
       name: string;
       description?: string | null;
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-      default_permissions?: { a: number; d: number };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
+      default_permissions?: ({ a: number; d: number }) | null;
       role_permissions?: { [key: string]: { a: number; d: number } };
       nsfw?: boolean;
-    }[];
-    server: {
+    })[];
+    server: ({
       _id: string;
       owner: string;
       name: string;
       description?: string | null;
       channels: string[];
-      categories?: { id: string; title: string; channels: string[] }[] | null;
-      system_messages?: {
-        user_joined?: string | null;
-        user_left?: string | null;
-        user_kicked?: string | null;
-        user_banned?: string | null;
-      };
+      categories?:
+        | { id: string; title: string; channels: string[] }[]
+        | null;
+      system_messages?:
+        | ({
+          user_joined?: string | null;
+          user_left?: string | null;
+          user_kicked?: string | null;
+          user_banned?: string | null;
+        })
+        | null;
       roles?: {
         [key: string]: {
           name: string;
-          permissions: { a: number; d: number };
+          permissions: ({ a: number; d: number });
           colour?: string | null;
           hoist?: boolean;
           rank?: number;
         };
       };
       default_permissions: number;
-      icon?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
-      banner?: {
-        _id: string;
-        tag: string;
-        filename: string;
-        metadata:
-          | { type: 'File' }
-          | { type: 'Text' }
-          | { type: 'Image'; width: number; height: number }
-          | { type: 'Video'; width: number; height: number }
-          | { type: 'Audio' };
-        content_type: string;
-        size: number;
-        deleted?: boolean | null;
-        reported?: boolean | null;
-        message_id?: string | null;
-        user_id?: string | null;
-        server_id?: string | null;
-        object_id?: string | null;
-      };
+      icon?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
+      banner?:
+        | ({
+          _id: string;
+          tag: string;
+          filename: string;
+          metadata: ((
+            | { type: 'File' }
+            | { type: 'Text' }
+            | { type: 'Image'; width: number; height: number }
+            | { type: 'Video'; width: number; height: number }
+            | { type: 'Audio' }
+          ));
+          content_type: string;
+          size: number;
+          deleted?: boolean | null;
+          reported?: boolean | null;
+          message_id?: string | null;
+          user_id?: string | null;
+          server_id?: string | null;
+          object_id?: string | null;
+        })
+        | null;
       flags?: number | null;
       nsfw?: boolean;
       analytics?: boolean;
       discoverable?: boolean;
-    };
-  };
+    });
+  });
 } | {
   path: `/invites/${string}`;
   parts: 2;
@@ -3816,17 +4300,20 @@ export type Routes = {
   path: `/auth/session/login`;
   parts: 3;
   method: 'POST';
-  response:
+  response: (
     | {
       result: 'Success';
       _id?: string | null;
       user_id: string;
       token: string;
       name: string;
-      subscription?: { endpoint: string; p256dh: string; auth: string };
+      subscription?:
+        | ({ endpoint: string; p256dh: string; auth: string })
+        | null;
     }
     | { result: 'EmailOTP' }
-    | { result: 'MFA'; ticket: string; allowed_methods: string[] };
+    | { result: 'MFA'; ticket: string; allowed_methods: string[] }
+  );
 } | {
   path: `/auth/session/logout`;
   parts: 3;
@@ -3856,7 +4343,7 @@ export type Routes = {
     user_id: string;
     token: string;
     name: string;
-    subscription?: { endpoint: string; p256dh: string; auth: string };
+    subscription?: ({ endpoint: string; p256dh: string; auth: string }) | null;
   };
 } | {
   path: `/onboard/hello`;
@@ -3893,7 +4380,7 @@ export type Routes = {
   parts: 2;
   method: 'GET';
   response: {
-    _id: { channel: string; user: string };
+    _id: ({ channel: string; user: string });
     last_id?: string | null;
     mentions?: string[] | null;
   }[];
