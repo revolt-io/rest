@@ -10,11 +10,11 @@ jobs:
       - uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
         with:
            deno-version: v1.x
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v3
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: deno run -A scripts/build_npm.ts ${{github.ref_name}}
-      - run: cd npm && yarn install && yarn publish --access=public
+      - run: cd npm && pnpm install && pnpm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
