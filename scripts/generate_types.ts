@@ -71,6 +71,7 @@ for (const [path, methods] of Object.entries(OpenAPI.paths!)) {
 
     const route = `{
             path: \`${typedPath}\`
+            parts: ${typedPath.split('/').length - 1}
             method: '${method.toUpperCase()}'
             response: ${typedResponse}
         }`;

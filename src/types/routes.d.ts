@@ -1,5 +1,6 @@
 export type Routes = {
   path: `/`;
+  parts: 1;
   method: 'GET';
   response: {
     revolt: string;
@@ -17,6 +18,7 @@ export type Routes = {
   };
 } | {
   path: `/users/@me`;
+  parts: 2;
   method: 'GET';
   response: {
     _id: string;
@@ -93,6 +95,7 @@ export type Routes = {
   };
 } | {
   path: `/users/@me`;
+  parts: 2;
   method: 'PATCH';
   response: {
     _id: string;
@@ -169,6 +172,7 @@ export type Routes = {
   };
 } | {
   path: `/users/${string}`;
+  parts: 2;
   method: 'GET';
   response: {
     _id: string;
@@ -245,6 +249,7 @@ export type Routes = {
   };
 } | {
   path: `/users/@me/username`;
+  parts: 3;
   method: 'PATCH';
   response: {
     _id: string;
@@ -321,10 +326,12 @@ export type Routes = {
   };
 } | {
   path: `/users/${string}/default_avatar`;
+  parts: 3;
   method: 'GET';
   response: undefined;
 } | {
   path: `/users/${string}/profile`;
+  parts: 3;
   method: 'GET';
   response: {
     content?: string;
@@ -350,6 +357,7 @@ export type Routes = {
   };
 } | {
   path: `/users/dms`;
+  parts: 2;
   method: 'GET';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -446,6 +454,7 @@ export type Routes = {
   }[];
 } | {
   path: `/users/${string}/dm`;
+  parts: 3;
   method: 'GET';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -542,10 +551,12 @@ export type Routes = {
   };
 } | {
   path: `/users/${string}/mutual`;
+  parts: 3;
   method: 'GET';
   response: { users: string[]; servers: string[] };
 } | {
   path: `/users/${string}/friend`;
+  parts: 3;
   method: 'PUT';
   response: {
     _id: string;
@@ -622,6 +633,7 @@ export type Routes = {
   };
 } | {
   path: `/users/${string}/friend`;
+  parts: 3;
   method: 'DELETE';
   response: {
     _id: string;
@@ -698,6 +710,7 @@ export type Routes = {
   };
 } | {
   path: `/users/${string}/block`;
+  parts: 3;
   method: 'PUT';
   response: {
     _id: string;
@@ -774,6 +787,7 @@ export type Routes = {
   };
 } | {
   path: `/users/${string}/block`;
+  parts: 3;
   method: 'DELETE';
   response: {
     _id: string;
@@ -850,6 +864,7 @@ export type Routes = {
   };
 } | {
   path: `/bots/create`;
+  parts: 2;
   method: 'POST';
   response: {
     _id: string;
@@ -865,6 +880,7 @@ export type Routes = {
   };
 } | {
   path: `/bots/${string}/invite`;
+  parts: 3;
   method: 'GET';
   response: {
     _id: string;
@@ -892,10 +908,12 @@ export type Routes = {
   };
 } | {
   path: `/bots/${string}/invite`;
+  parts: 3;
   method: 'POST';
   response: undefined;
 } | {
   path: `/bots/${string}`;
+  parts: 2;
   method: 'GET';
   response: {
     bot: {
@@ -986,10 +1004,12 @@ export type Routes = {
   };
 } | {
   path: `/bots/${string}`;
+  parts: 2;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/bots/${string}`;
+  parts: 2;
   method: 'PATCH';
   response: {
     _id: string;
@@ -1005,6 +1025,7 @@ export type Routes = {
   };
 } | {
   path: `/bots/@me`;
+  parts: 2;
   method: 'GET';
   response: {
     bots: {
@@ -1095,10 +1116,12 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/ack/${string}`;
+  parts: 4;
   method: 'PUT';
   response: undefined;
 } | {
   path: `/channels/${string}`;
+  parts: 2;
   method: 'GET';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -1195,10 +1218,12 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}`;
+  parts: 2;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/channels/${string}`;
+  parts: 2;
   method: 'PATCH';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -1295,6 +1320,7 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/members`;
+  parts: 3;
   method: 'GET';
   response: {
     _id: string;
@@ -1371,6 +1397,7 @@ export type Routes = {
   }[];
 } | {
   path: `/channels/${string}/invites`;
+  parts: 3;
   method: 'POST';
   response: {
     type: 'Server';
@@ -1381,6 +1408,7 @@ export type Routes = {
   } | { type: 'Group'; _id: string; creator: string; channel: string };
 } | {
   path: `/channels/${string}/messages`;
+  parts: 3;
   method: 'GET';
   response: {
     _id: string;
@@ -1698,6 +1726,7 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/messages`;
+  parts: 3;
   method: 'POST';
   response: {
     _id: string;
@@ -1809,6 +1838,7 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/search`;
+  parts: 3;
   method: 'POST';
   response: {
     _id: string;
@@ -2126,10 +2156,12 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/messages/stale`;
+  parts: 4;
   method: 'POST';
   response: undefined;
 } | {
   path: `/channels/${string}/messages/${string}`;
+  parts: 4;
   method: 'GET';
   response: {
     _id: string;
@@ -2241,10 +2273,12 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/messages/${string}`;
+  parts: 4;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/channels/${string}/messages/${string}`;
+  parts: 4;
   method: 'PATCH';
   response: {
     _id: string;
@@ -2356,10 +2390,12 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/messages/bulk`;
+  parts: 4;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/channels/create`;
+  parts: 2;
   method: 'POST';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -2456,18 +2492,22 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/recipients/${string}`;
+  parts: 4;
   method: 'PUT';
   response: undefined;
 } | {
   path: `/channels/${string}/recipients/${string}`;
+  parts: 4;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/channels/${string}/join_call`;
+  parts: 3;
   method: 'POST';
   response: string;
 } | {
   path: `/channels/${string}/permissions/${string}`;
+  parts: 4;
   method: 'PUT';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -2564,6 +2604,7 @@ export type Routes = {
   };
 } | {
   path: `/channels/${string}/permissions/default`;
+  parts: 4;
   method: 'PUT';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -2660,6 +2701,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/create`;
+  parts: 2;
   method: 'POST';
   response: {
     server: {
@@ -2822,6 +2864,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}`;
+  parts: 2;
   method: 'GET';
   response: {
     _id: string;
@@ -2889,10 +2932,12 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}`;
+  parts: 2;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/servers/${string}`;
+  parts: 2;
   method: 'PATCH';
   response: {
     _id: string;
@@ -2960,10 +3005,12 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/ack`;
+  parts: 3;
   method: 'PUT';
   response: undefined;
 } | {
   path: `/servers/${string}/channels`;
+  parts: 3;
   method: 'POST';
   response: { channel_type: 'SavedMessages'; _id: string; user: string } | {
     channel_type: 'DirectMessage';
@@ -3060,6 +3107,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/members`;
+  parts: 3;
   method: 'GET';
   response: {
     members: {
@@ -3162,6 +3210,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/members/${string}`;
+  parts: 4;
   method: 'GET';
   response: {
     _id: { server: string; user: string };
@@ -3189,10 +3238,12 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/members/${string}`;
+  parts: 4;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/servers/${string}/members/${string}`;
+  parts: 4;
   method: 'PATCH';
   response: {
     _id: { server: string; user: string };
@@ -3220,14 +3271,17 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/bans/${string}`;
+  parts: 4;
   method: 'PUT';
   response: { _id: { server: string; user: string }; reason?: string };
 } | {
   path: `/servers/${string}/bans/${string}`;
+  parts: 4;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/servers/${string}/bans`;
+  parts: 3;
   method: 'GET';
   response: {
     users: {
@@ -3257,6 +3311,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/invites`;
+  parts: 3;
   method: 'GET';
   response: {
     type: 'Server';
@@ -3267,6 +3322,7 @@ export type Routes = {
   } | { type: 'Group'; _id: string; creator: string; channel: string }[];
 } | {
   path: `/servers/${string}/roles`;
+  parts: 3;
   method: 'POST';
   response: {
     id: string;
@@ -3280,10 +3336,12 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/roles/${string}`;
+  parts: 4;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/servers/${string}/roles/${string}`;
+  parts: 4;
   method: 'PATCH';
   response: {
     name: string;
@@ -3294,6 +3352,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/permissions/${string}`;
+  parts: 4;
   method: 'PUT';
   response: {
     _id: string;
@@ -3361,6 +3420,7 @@ export type Routes = {
   };
 } | {
   path: `/servers/${string}/permissions/default`;
+  parts: 4;
   method: 'PUT';
   response: {
     _id: string;
@@ -3428,6 +3488,7 @@ export type Routes = {
   };
 } | {
   path: `/invites/${string}`;
+  parts: 2;
   method: 'GET';
   response: {
     type: 'Server';
@@ -3525,6 +3586,7 @@ export type Routes = {
   };
 } | {
   path: `/invites/${string}`;
+  parts: 2;
   method: 'POST';
   response: {
     type: 'Server';
@@ -3688,42 +3750,52 @@ export type Routes = {
   };
 } | {
   path: `/invites/${string}`;
+  parts: 2;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/auth/account/create`;
+  parts: 3;
   method: 'POST';
   response: undefined;
 } | {
   path: `/auth/account/reverify`;
+  parts: 3;
   method: 'POST';
   response: undefined;
 } | {
   path: `/auth/account/`;
+  parts: 3;
   method: 'GET';
   response: { _id: string; email: string };
 } | {
   path: `/auth/account/change/password`;
+  parts: 4;
   method: 'PATCH';
   response: undefined;
 } | {
   path: `/auth/account/change/email`;
+  parts: 4;
   method: 'PATCH';
   response: undefined;
 } | {
   path: `/auth/account/verify/${string}`;
+  parts: 4;
   method: 'POST';
   response: undefined;
 } | {
   path: `/auth/account/reset_password`;
+  parts: 3;
   method: 'POST';
   response: undefined;
 } | {
   path: `/auth/account/reset_password`;
+  parts: 3;
   method: 'PATCH';
   response: undefined;
 } | {
   path: `/auth/session/login`;
+  parts: 3;
   method: 'POST';
   response:
     | {
@@ -3738,22 +3810,27 @@ export type Routes = {
     | { result: 'MFA'; ticket: string; allowed_methods: string[] };
 } | {
   path: `/auth/session/logout`;
+  parts: 3;
   method: 'POST';
   response: undefined;
 } | {
   path: `/auth/session/all`;
+  parts: 3;
   method: 'GET';
   response: { _id: string; name: string }[];
 } | {
   path: `/auth/session/all`;
+  parts: 3;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/auth/session/${string}`;
+  parts: 3;
   method: 'DELETE';
   response: undefined;
 } | {
   path: `/auth/session/${string}`;
+  parts: 3;
   method: 'PATCH';
   response: {
     _id?: string;
@@ -3764,30 +3841,37 @@ export type Routes = {
   };
 } | {
   path: `/onboard/hello`;
+  parts: 2;
   method: 'GET';
   response: boolean;
 } | {
   path: `/onboard/complete`;
+  parts: 2;
   method: 'POST';
   response: undefined;
 } | {
   path: `/push/subscribe`;
+  parts: 2;
   method: 'POST';
   response: undefined;
 } | {
   path: `/push/unsubscribe`;
+  parts: 2;
   method: 'POST';
   response: undefined;
 } | {
   path: `/sync/settings/fetch`;
+  parts: 3;
   method: 'POST';
   response: {}[];
 } | {
   path: `/sync/settings/set`;
+  parts: 3;
   method: 'POST';
   response: undefined;
 } | {
   path: `/sync/unreads`;
+  parts: 2;
   method: 'GET';
   response: {
     _id: { channel: string; user: string };
