@@ -93,7 +93,7 @@ for (const [path, methods] of Object.entries(OpenAPI.paths!)) {
 }
 
 Deno.writeTextFileSync(
-  'src/types/routes.d.ts',
+  'src/types/routes.ts',
   `
 export type Routes = ${routes.join(' | ')}
 export type GetRoutes = Extract<Routes, { method: 'GET' }>
