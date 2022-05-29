@@ -20,6 +20,9 @@ function getType(schema: ReferenceObject | SchemaObject): string {
 
   if (isReference(schema)) return getType(schema);
 
+  const nullable = (type: string) =>
+    type + ((schema as SchemaObject).nullable ? ' | null' : '');
+
   const extractedTypes: Record<string, string> = {};
 
   if (schema.items) {
@@ -27,15 +30,21 @@ function getType(schema: ReferenceObject | SchemaObject): string {
       return '[' + schema.items.map((t) => getType(t)).join(', ') + ']';
     }
 
-    return getType(schema.items) + '[]' + (schema.nullable ? ' | null' : '');
+    return nullable(getType(schema.items) + '[]');
   }
   if (schema.allOf) {
-    return (schema.allOf as ReferenceObject[]).map((x) => getType(x)).join(
-      ' & ',
+    return nullable(
+      '( ' + (schema.allOf as ReferenceObject[]).map((x) =>
+        getType(x)
+      ).join(' & ') + ' )',
     );
   }
-  if (schema.anyOf) return schema.anyOf.map((x) => getType(x)).join(' | ');
-  if (schema.oneOf) return schema.oneOf.map((x) => getType(x)).join(' | ');
+  if (schema.anyOf) {
+    return '( ' + schema.anyOf.map((x) => getType(x)).join(' | ') + ' )';
+  }
+  if (schema.oneOf) {
+    return '( ' + schema.oneOf.map((x) => getType(x)).join(' | ') + ' )';
+  }
   if (schema.enum) return schema.enum.map((e) => `'${e}'`).join(' | ');
   if (
     schema.additionalProperties &&
@@ -54,7 +63,7 @@ function getType(schema: ReferenceObject | SchemaObject): string {
   if (schema.type === 'integer') schema.type = 'number';
   if (schema.type && Object.keys(extractedTypes).length === 0) {
     extractedTypes.type = schema.type;
-    if (schema.nullable) extractedTypes.type += ' | null';
+    if (schema.nullable) extractedTypes.type = nullable(extractedTypes.type);
     return extractedTypes.type;
   }
 
