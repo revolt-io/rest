@@ -90,7 +90,10 @@ export class REST {
       }).finally(() => clearTimeout(timeout));
 
       if (res.ok) {
-        return res.json();
+        if (res.headers.get('Content-Type')?.startsWith('application/json')) {
+          return res.json();
+        }
+        return res.arrayBuffer();
       }
 
       // TODO: Handle Rate limits
